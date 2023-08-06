@@ -1,0 +1,46 @@
+.bottomPanelContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 12px 2px lightgray;
+    background-color: white;
+    z-index: 200;
+}
+
+.bottomPanelItem {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+    color: gray;
+}
+
+.bottomPanelIcon {
+    font-size: 18px;
+    color: inherit;
+}
+
+.bottomPanelP {
+    font-size: 12px;
+    margin: 5px 0;
+    color: inherit;
+}
+
+.bottomPanelItem:hover {
+    transform: scale(1.1);
+    color: #41a7f7;
+}
+
+@media (max-width: 932px) {
+    .bottomPanelContainer {
+        display: flex;
+    }
+}

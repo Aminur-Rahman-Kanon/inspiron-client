@@ -1,0 +1,31 @@
+.navbarContainer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.navbarLink {
+    text-decoration: none;
+    color: rgb(55, 55, 55);
+    display: block;
+    padding: 5px;
+    margin: 0 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.navbarLink:hover {
+    color: #4d53f6;
+}
+
+@media (max-width: 932px) {
+    .navbarContainer {
+        flex-flow: column;
+        padding: 10px;
+        align-items: flex-start;
+    }
+}

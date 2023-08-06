@@ -1,0 +1,82 @@
+.additionalBanner2Container {
+    width: 100%;
+    margin: 30px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.additionalBanner2Item {
+    position: relative;
+    width: 33.33%;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.additionalBanner2ImgContainer {
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.additionalBanner2ImgContainer.item1 {
+    background-image: url('../../../../Assets/camera.jpg');
+}
+
+.additionalBanner2ImgContainer.item2 {
+    background-image: url('../../../../Assets/mobile.jpg');
+}
+
+.additionalBanner2ImgContainer.item3 {
+    background-image: url('../../../../Assets/console.jpg');
+}
+
+.additionalBanner2DetailsContainer {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    transform: translate(0%, 0%);
+
+}
+
+.additionalBanner2P {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(224, 118, 24);
+    margin: 5px 0;
+}
+
+.additionalBanner2H3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: white;
+}
+
+@media (max-width: 932px) {
+    .additionalBanner2Container {
+        flex-flow: column;   
+    }
+
+    .additionalBanner2Item {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .additionalBanner2ImgContainer {
+        height: 400px;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 550px) {
+    .additionalBanner2ImgContainer {
+        height: 250px;
+        background-size: auto;
+    }
+}

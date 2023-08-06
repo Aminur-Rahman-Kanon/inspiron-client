@@ -1,0 +1,33 @@
+.sidedrawerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    min-width: 280px;
+    height: 100vh;
+    box-sizing: border-box;
+    display: none;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    transform: translate(-100%);
+    background-color: white;
+    z-index: 500;
+    box-shadow: 0 0 12px 2px lightgray;
+}
+
+.sidedrawerContainer.open {
+    transform: translate(0);
+}
+
+.logoContainer {
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 932px) {
+    .sidedrawerContainer {
+        display: flex;
+    }
+}

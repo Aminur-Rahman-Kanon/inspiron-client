@@ -1,0 +1,18 @@
+.bars {
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    display: none;
+    color: rgb(55, 55, 55);
+}
+
+.bars:hover {
+    transform: scale(1.1);
+    color: #4d53f6;
+}
+
+@media (max-width: 932px) {
+    .bars {
+        display: block;
+    }
+}

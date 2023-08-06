@@ -1,0 +1,71 @@
+.featuredProductContainer {
+    width: 100%;
+    height: 100vh;
+    margin: 30px auto;
+    background-image: url('../../../../Assets//watch.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.featuredProductDetails {
+    padding: 10px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.featuredProductH2 {
+    font-size: 35px;
+    margin: 20px 0;
+    color: white;
+}
+
+.featuredProductH4 {
+    font-size: 20px;
+    /* color: white; */
+    color: rgb(224, 118, 24);
+    margin: 20px 0;
+}
+
+.price {
+    /* color: white; */
+}
+
+.featuredProductLink {
+    width: 200px;
+    height: 40px;
+    border: 2px solid rgb(224, 118, 24);
+    background-color: rgb(224, 118, 24);
+    margin: 20px 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .featuredProductContainer {
+        height: 480px;
+        justify-content: center;
+        background-attachment: scroll;
+    }
+
+    .featuredProductDetails {
+        align-items: center;
+    }
+
+    .featuredProductH2, .featuredProductH4 {
+        text-align: center;
+    }
+}

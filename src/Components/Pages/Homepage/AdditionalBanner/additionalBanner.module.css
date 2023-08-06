@@ -1,0 +1,109 @@
+.additionalBannerContainer {
+    width: 100%;
+    margin: 30px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.additionalBannerItem {
+    position: relative;
+    width: 33.33%;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.additionalBannerImgContainer {
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.additionalBannerImgContainer.banner1 {
+    background-image: url('../../../../Assets/images/aBanner1.jpg');
+}
+
+.additionalBannerImgContainer.banner2 {
+    background-image: url('../../../../Assets/images/aBanner5.jpg');
+}
+
+.additionalBannerImgContainer.banner3 {
+    background-image: url('../../../../Assets/images/aBanner6.jpg');
+}
+
+.additionalBannerDetailsContainer {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translate(20%, -20%);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.additionalBannerP {
+    color: rgb(224, 118, 24);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.additionalBannerH3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 5px 0;
+    color: lightgray;
+}
+
+.additionalBannerLink {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgrey;
+    transition: all 0.2s ease-in;
+}
+
+.additionalLinkP {
+    font-size: 13px;
+    margin: 0;
+    color: inherit;
+}
+
+.additionalLinkIcon {
+    font-size: 18px;
+    color: inherit;
+    margin: 5px;
+}
+
+.additionalBannerLink:hover {
+    color: white;transform: scale(1.1);
+}
+
+@media (max-width: 932px) {
+    .additionalBannerContainer {
+        flex-flow: column;
+    }
+
+    .additionalBannerItem {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .additionalBannerImgContainer {
+        height: 450px;
+    }
+}
+
+@media (max-width: 550px) {
+    .additionalBannerImgContainer {
+        height: 300px;
+    }
+}
