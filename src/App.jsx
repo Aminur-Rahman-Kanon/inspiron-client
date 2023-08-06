@@ -15,7 +15,7 @@ function App() {
     const [backdrop, setBackdrop] = useState(false);
     
     useEffect(() => {
-        fetch('https://inspiron-19oa.onrender.com/products/all-products')
+        fetch('https://inspiron-server-9gmf.onrender.com/products/all-products')
         .then(res => res.json())
         .then(result => setProducts(result.data))
         .catch(err => console.log(err));
