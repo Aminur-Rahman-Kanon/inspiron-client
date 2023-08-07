@@ -8,7 +8,7 @@ function Testimonial() {
     const [testimonial, setTestimonial] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8000/get-testimonial')
+        fetch('https://inspiron-server-9gmf.onrender.com/get-testimonial')
         .then(res => res.json())
         .then(result => {
             if (result.status === 'success'){
