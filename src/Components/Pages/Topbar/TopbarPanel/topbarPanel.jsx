@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './topbarPanel.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faStar } from '@fortawesome/free-regular-svg-icons';
+import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -21,7 +21,7 @@ function TopbarPanel () {
             </li>
             <li className={styles.topbarPanelItem}>
                 <a href='#' className={styles.topbarPanelLink}>
-                    <FontAwesomeIcon icon={faStar} className={styles.topbarPanelIcon}/>
+                    <FontAwesomeIcon icon={faHeart} className={styles.topbarPanelIcon}/>
                 </a>
             </li>
             <li className={styles.topbarPanelItem}>

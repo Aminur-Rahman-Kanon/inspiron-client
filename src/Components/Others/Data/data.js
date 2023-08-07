@@ -5,6 +5,9 @@ import game from '../../../Assets/images/game.png';
 import laptop from '../../../Assets/images/laptop.png';
 import headphone from '../../../Assets/images/marshal4.png';
 import tv from '../../../Assets/images/lg1.png';
+import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+
 
 export const productsCategory = [
     {
@@ -84,5 +87,21 @@ export const productsCategory = [
             {name: 'Marshal', link: 'http://localhost:3000/products/headphones/marshal'},
             {name: 'JBL', link: 'http://localhost:3000/products/headphones/jbl'}
         ]
+    }
+]
+
+
+export const optionContainerData = [
+    {
+        name: 'Add to cart',
+        icon: faCartShopping
+    },
+    {
+        name: 'Wishlist',
+        icon: faHeart
+    },
+    {
+        name: 'Quickview',
+        icon: faMagnifyingGlass
     }
 ]

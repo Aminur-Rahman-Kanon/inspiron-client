@@ -27,7 +27,7 @@
 }
 
 .socialLinkIcon {
-    font-size: 20px;
+    font-size: 25px;
     color: #4d53f6;
     margin-right: 20px;
     cursor: pointer;
@@ -41,7 +41,8 @@
 
 .footerH3 {
     font-size: 18px;
-    color: rgb(55, 55, 55);
+    /* color: rgb(55, 55, 55); */
+    color: #363df2;
     margin: 0 0 10px 0;
 }
 
