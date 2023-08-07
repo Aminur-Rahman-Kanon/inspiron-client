@@ -1,0 +1,28 @@
+.sponsorShipContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.sponsorShipImgContainer {
+    width: 80px;
+    height: 80px;
+    margin: 0 20px;
+    min-width: 80px;
+}
+
+.sponsorImg {
+    width: 100%;
+}
+
+@media (max-width: 580px) {
+    .sponsorShipContainer {
+        overflow: scroll;
+        justify-content: flex-start;
+    }
+}

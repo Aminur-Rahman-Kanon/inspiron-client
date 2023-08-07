@@ -1,0 +1,136 @@
+.footerContainer {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footerTopItem {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+}
+
+.footerInfo {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.phoneNumber {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.socialLinkContainer {
+    margin: 20px 0;
+}
+
+.socialLinkIcon {
+    font-size: 20px;
+    color: #4d53f6;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.socialLinkIcon:hover {
+    transform: scale(1.1);
+    color: #363df2;
+}
+
+.footerH3 {
+    font-size: 18px;
+    color: rgb(55, 55, 55);
+    margin: 0 0 10px 0;
+}
+
+.footerP {
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.footerTopItemContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footerTopItemContainer:first-child {
+    align-items: flex-start;
+}
+
+.informationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.informationListLink {
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(99, 99, 99);
+    display: block;
+    margin: 5px 0;
+    transition: all 0.3s ease-out;
+}
+
+.informationListLink:hover {
+    color: rgb(0, 0, 0);
+}
+
+.footerBottomItem {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+}
+
+.footerBottomH4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footerBottomImgContainer {
+    width: 200px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footerBottomImg {
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .footerContainer {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .footerTopItem {
+        grid-template-columns: 1fr;
+    }
+
+    .footerTopItemContainer {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 450px) {
+    .footerBottomItem {
+        flex-flow: column;
+    }
+
+    .footerBottomImgContainer {
+        width: 150px;
+    }
+}

@@ -7,6 +7,7 @@ import Sidedrawer from './Components/Others/Sidedrawer/sidedrawer';
 import Backdrop from './Components/Others/Backdrop/backdrop';
 import AuthContext from './Components/Others/AuthContext/authContext';
 import { disableScroll } from './Components/Others/HelperFunction/helperFunction';
+import Footer from './Components/Pages/Footer/footer';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomepageMain />}/>
                 </Routes>
+                <Footer />
             </AuthContext.Provider>
         </div>
     );

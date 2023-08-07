@@ -17,6 +17,8 @@ function Banner () {
                   transitionTime={1500} 
                   showStatus={false} 
                   showThumbs={false}
+                  preventMovementUntilSwipeScrollTolerance={true}
+                  swipeScrollTolerance={50}
                   className="banner-silder-container"
                   >
             <section className='banner-items' style={{flexFlow: 'row-reverse'}}>

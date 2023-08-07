@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 function ProductsCategory() {
     const displayProductsCategory = productsCategory.map(item => {
-        return <div className={styles.productsCategoryItem}>
+        return <div key={item.title} className={styles.productsCategoryItem}>
             <div className={styles.productsImgContainer}>
                 <img src={item.img} alt={item.title} className={styles.productsImg} />
             </div>
             <div className={styles.productsDetailsContainer}>
                 <h4 className={styles.productsCategoryH4}>{item.title}</h4>
                 <ul className={styles.productsCategoryLists}>
-                    {item.items.map(product => <li className={styles.productsCategoryList}>
+                    {item.items.map((product, idx) => <li key={idx} className={styles.productsCategoryList}>
                         <Link to={product.link} className={styles.productLink}>{product.name}</Link>
                     </li>)}
                 </ul>

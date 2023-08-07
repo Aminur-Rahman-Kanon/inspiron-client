@@ -7,7 +7,7 @@ function TopSellingProduct() {
     const product = useContext(AuthContext);
 
     const displayProducts = Object.keys(product.products).length ? product.products.popularProducts.map(item => {
-        return <div className={styles.topSellingitem}>
+        return <div key={item.title} className={styles.topSellingitem}>
             <div className={styles.topSellingImgContainer}>
                 <img src={item.img[0]} alt={item.title} className={styles.topSellingImg} />
             </div>

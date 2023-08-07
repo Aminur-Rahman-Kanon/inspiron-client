@@ -7,6 +7,8 @@ import FeaturedProduct from '../FeaturedProduct/featuredProduct';
 import TopSellingProduct from '../TopSellingProduct/topSellingProduct';
 import ProductsCategory from '../ProductsCategory/productsCategory';
 import AdditionalBanner2 from '../AdditionalBanner2/additionalBanner2';
+import SponsorShip from '../SponsorShip/sponsorShip';
+import Testimonial from '../Testimonial/testimonial';
 
 function HomepageMain () {
     return (
@@ -18,6 +20,8 @@ function HomepageMain () {
             <TopSellingProduct />
             <ProductsCategory />
             <AdditionalBanner2 />
+            <SponsorShip />
+            <Testimonial />
         </div>
     )
 }

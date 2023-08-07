@@ -5,12 +5,12 @@ import AuthContext from '../../../Others/AuthContext/authContext';
 
 function ProductsType () {
 
-    const product = useContext(AuthContext);
+    const context = useContext(AuthContext);
 
     const [category, setCategory] = useState('allProducts');
 
-    const displayProducts = Object.keys(product.products).length ? product.products[category].map(item => {
-        return <section className={styles.productsDisplayItem}>
+    const displayProducts = Object.keys(context.products).length ? context.products[category].map((item, idx) => {
+        return <section key={idx} className={styles.productsDisplayItem}>
             <div className={styles.productsImgContainer}>
                 <img src={item.img[0]} alt={item.title} className={styles.productsImg} />
             </div>
@@ -25,6 +25,8 @@ function ProductsType () {
     <div className={styles.defaultProduct}>
         <h4 className={styles.productsH4}>Nothing to display</h4>
     </div>
+
+    console.log(context);
 
     return (
         <div className={styles.productsTypeContainer}>
