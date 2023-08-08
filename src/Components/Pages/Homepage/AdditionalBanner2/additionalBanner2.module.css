@@ -76,7 +76,6 @@
 
 @media (max-width: 550px) {
     .additionalBanner2ImgContainer {
-        height: 250px;
-        background-size: auto;
+        height: 300px;
     }
 }

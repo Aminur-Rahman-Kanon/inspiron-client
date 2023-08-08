@@ -8,6 +8,7 @@ import Backdrop from './Components/Others/Backdrop/backdrop';
 import AuthContext from './Components/Others/AuthContext/authContext';
 import { disableScroll } from './Components/Others/HelperFunction/helperFunction';
 import Footer from './Components/Pages/Footer/footer';
+import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
         }
     }, [backdrop])
 
+    console.log(products);
+
     const toggleSidedrawer = () => {
         setSiderawer(true);
         setBackdrop(true);
@@ -49,6 +52,7 @@ function App() {
                 <Sidedrawer sidedrawer={sidedrawer}/>
                 <Routes>
                     <Route path='/' element={<HomepageMain />}/>
+                    <Route path='/product/:category/:productId' element={<ProductDetails />} />
                 </Routes>
                 <Footer />
             </AuthContext.Provider>

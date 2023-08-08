@@ -2,18 +2,20 @@ import React from 'react';
 import styles from './productDisplayContainer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { optionContainerData } from '../Data/data';
+import RatingContainer from '../RatingContainer/ratingContainer';
+import { Link } from 'react-router-dom';
 
 function ProductDisplayContainer({ product, category }) {
 
     const displayProducts = Object.keys(product).length ? product[category].map((item, idx) => {
-        return <section key={idx} className={styles.productsDisplayItem}>
+        return <Link to= {`/product/${category}/${item._id}`} key={idx} className={styles.productsDisplayItem}>
             <div className={styles.productsImgContainer}>
                 <img src={item.img[0]} alt={item.title} className={styles.productsImg} />
+                <h4 className={styles.productsH4}>{item.title}</h4>
             </div>
             <div className={styles.productsDetailsContainer}>
-                <h4 className={styles.productsH4}>{item.title}</h4>
-                {/*rating container*/}
-                <p className={styles.productsP}>&pound;{item.price}</p>
+                <RatingContainer rating={item.rating} />
+                <h4 className={styles.productsH4}>&pound;{item.price}</h4>
             </div>
             <div className={styles.optionPanelContainer}>
                 {
@@ -27,7 +29,7 @@ function ProductDisplayContainer({ product, category }) {
                     </div>)
                 }
             </div>
-        </section>
+        </Link>
     }) :
 
     <div className={styles.defaultProduct}>
