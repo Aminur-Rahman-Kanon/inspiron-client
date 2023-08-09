@@ -32,6 +32,17 @@
 
 .mainImg {
     width: 70%;
+    animation: imgEffect 0.4s ease-out forwards;
+}
+
+@keyframes imgEffect {
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .otherImgContainer {
@@ -100,7 +111,7 @@
 
 .detailsContainer {
     width: 100%;
-    padding: 10px;
+    padding: 0 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -120,11 +131,11 @@
 
 .detailsContainerList {
     font-size: 13px;
-    margin: 5px 0;
+    margin: 1px 0;
 }
 
 .productDetailsH4 {
-    margin: 10px 0;
+    margin: 5px 0;
     font-size: 18px;
     color: #4d53f6;
 }
@@ -145,7 +156,7 @@
     margin: 10px 0;
     display: flex;
     justify-content: flex-start;
-    align-items: end;
+    align-items: center;
 }
 
 .watchingIcon {
@@ -164,15 +175,43 @@
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 
 .about {
-    font-size: 14px;
+    font-size: 13px;
     /* word-spacing: 1px; */
     margin: 5px 0;
     color: rgb(55, 55, 55);
+}
+
+.relatedItemContainer {
+    width: 100%;
+    margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.relatedProducts {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 30px auto;
+}
+
+.productDetailsH2 {
+    font-size: 25px;
+    color: #4d53f6;
+    margin: 0 auto;
 }
 
 @media (max-width: 932px) {
@@ -184,12 +223,22 @@
         width: 80%;
         margin: 0 auto;
     }
+
+    .relatedProducts {
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {
     .productDisplayItem {
         padding: 10px;
     }
+
+    .productDetailsContainer, .aboutContainer, .detailsContainer {
+        margin: 0;
+        padding: 0;
+    }
+
     .productDisplayItem:nth-of-type(1) {
         width: 100%;
     }
@@ -198,8 +247,14 @@
         width: 65px;
     }
 
+    .actionContainer {
+        justify-content: center;
+    }
+
     .actionLink {
-        width: 50%;
+        width: 45%;
+        margin-right: unset;
+        margin: 0 5PX;
     }
 }
 
@@ -211,5 +266,4 @@
     .mainImg {
         width: 95%;
     }
-
 }

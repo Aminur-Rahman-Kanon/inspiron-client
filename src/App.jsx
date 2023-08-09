@@ -9,19 +9,28 @@ import AuthContext from './Components/Others/AuthContext/authContext';
 import { disableScroll } from './Components/Others/HelperFunction/helperFunction';
 import Footer from './Components/Pages/Footer/footer';
 import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
+import { useQuery } from 'react-query';
 
 function App() {
 
     const [products, setProducts] = useState({});
     const [sidedrawer, setSiderawer] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
+
+    const {isLoading, error, data} = useQuery({
+        queryKey: ['data'],
+        queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/all-products').then(res => res.json()).then(result => result.data),
+        staleTime: 100000
+    });
     
-    useEffect(() => {
-        fetch('https://inspiron-server-9gmf.onrender.com/products/all-products')
-        .then(res => res.json())
-        .then(result => setProducts(result.data))
-        .catch(err => console.log(err));
-    }, []);
+    // useEffect(() => {
+    //     fetch('https://inspiron-server-9gmf.onrender.com/products/all-products')
+    //     .then(res => res.json())
+    //     .then(result => setProducts(result.data))
+    //     .catch(err => console.log(err));
+    // }, []);
+
+    console.log(data);
 
     useEffect(() => {
         if (backdrop) {
@@ -31,8 +40,6 @@ function App() {
             window.onscroll = () => {}
         }
     }, [backdrop])
-
-    console.log(products);
 
     const toggleSidedrawer = () => {
         setSiderawer(true);
@@ -46,7 +53,7 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{ products: products }}>
+            <AuthContext.Provider value={{ products: data }}>
                 <Backdrop backdrop={backdrop} togglebackdrop={toggleBackdrop}/>
                 <Topbar changeSidedrawer={toggleSidedrawer} />
                 <Sidedrawer sidedrawer={sidedrawer}/>

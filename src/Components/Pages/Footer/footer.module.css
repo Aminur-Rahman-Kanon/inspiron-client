@@ -113,6 +113,7 @@
 
 @media (max-width: 700px) {
     .footerContainer {
+        margin-top: 20px;
         padding: 10px;
         box-sizing: border-box;
     }

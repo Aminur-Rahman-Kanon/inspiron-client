@@ -1,0 +1,124 @@
+.relatedProductsMain {
+    position: relative;
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.relatedProductsHeader {
+    text-align: left;
+    font-size: 20px;
+    color: #ad6c4d;
+    letter-spacing: 1px;
+}
+
+.relatedItemsItemContainer {
+    width: 95vw;
+    margin-top: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    transition: all 0.5s ease;
+}
+
+.relatedItemsItemContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.pagintaionContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.angleIconContainer {
+    height: 30px;
+    width: 30px;
+    /* margin: 0 8px; */
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.angleIcon {
+    color: #4d53f6;
+    font-size: 20px;
+}
+
+.angleIconContainer:hover {
+    animation: angleIcon 0.3s ease forwards;
+}
+
+.angleIconContainer:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+@media (max-width: 990px) {
+    .productsDetailsContainer {
+        margin: 10px auto;
+    }
+
+    .pagintaionContainer {
+        display: none;
+    }
+}
+
+.carouselItem {
+    min-width: 270px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carouselImgContainer {
+    width: 95%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselImg {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.carouselDetailsContainer {
+    width: 95%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselH3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* .slick-prev:before, .slick-next:before {
+    color: #4d53f6!important;
+    font-size: 24px;
+} */

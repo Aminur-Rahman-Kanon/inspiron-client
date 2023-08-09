@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import RatingContainer from '../../../Others/RatingContainer/ratingContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import Carousel from '../../../Others/Carousel/carousel';
 
 function ProductDetails() {
 
@@ -16,10 +17,26 @@ function ProductDetails() {
     const [imgIdx, setImgIdx] = useState(0);
 
     useEffect(() => {
-        const category = products[params.category];
-        if (category !== undefined){
-            const product = category.filter((item) => item._id === params.productId)
-            setItem(product[0]);
+        window.scrollTo(0, 0);
+    }, [])
+
+    useEffect(() => {
+        if (products){
+            if (products[params.category]){
+                const category = JSON.parse(JSON.stringify(products[params.category]));
+                let productIdx;
+                if (item === null && category !== undefined){
+                    const product = category.filter((item, idx) => {
+                        if (item._id === params.productId){
+                            productIdx = idx;
+                            return item;
+                        }
+                    })
+                    setItem(product[0]);
+                    category.splice(productIdx, 1);
+                    setRelatedItem(category)
+                }
+            }
         }
     }, [products]);
 
@@ -69,9 +86,33 @@ function ProductDetails() {
         <h3>No item</h3>
     </section>
 
+    const relatedItemDisplay = relatedItem.length ? relatedItem.map(relatedItems => <div key={relatedItems._id} className={styles.relatedItem}>
+                <div className={styles.relatedImgContainer}>
+                    <img src={relatedItems.img[0]} alt={relatedItems.title} className={styles.relatedImg} />
+                    <h4 className={styles.productDetailsH4}>{relatedItems.title}</h4>
+                </div>
+                <div className={styles.relatedItemDetailsContainer}>
+                    <RatingContainer rating={relatedItems.rating} />
+                    <h4 className={styles.productDetailsH4}>{relatedItems.price}</h4>
+                </div>
+            </div>)
+    :
+    <section className={styles.defaultRelatedContainer}>
+        <h4 className={styles.productDetailsH4}>No Item</h4>
+    </section>
+
     return (
         <div className={styles.productDetailsContainer}>
             {productDisplay}
+            <div className={styles.relatedItemContainer}>
+                <h2 className={styles.productDetailsH2}>Related Products</h2>
+                <div className={styles.relatedProducts}>
+                    {/* <button onClick={slideToPrevItem}></button>
+                    {carouselFragment}
+                    <button onClick={slideToNextItem}></button> */}
+                    <Carousel data={relatedItem} />
+                </div>
+            </div>
         </div>
     )
 }

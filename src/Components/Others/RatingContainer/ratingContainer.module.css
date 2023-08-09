@@ -9,7 +9,7 @@
 .rating {
     font-size: 15px;
     color: lightgray;
-    margin: 0 5px;
+    margin: 0 2px;
 }
 
 .rating.active {
