@@ -1,0 +1,40 @@
+.ShopBannerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #5483D9;
+    background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+    background-blend-mode: normal, lighten, soft-light;
+}
+
+.bannerImgContainer {
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+}
+
+.bannerImg {
+    width: 100%;
+}
+
+.bannerDetailsContainer {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    align-self: end;
+}
+
+.bannerH4 {
+    font-size: 22px;
+    color: white;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+}
+
+@media (max-width: 550px) {
+    .bannerImgContainer {
+        width: 40%;
+        height: unset;
+    }
+}

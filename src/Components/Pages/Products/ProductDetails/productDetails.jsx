@@ -107,10 +107,7 @@ function ProductDetails() {
             <div className={styles.relatedItemContainer}>
                 <h2 className={styles.productDetailsH2}>Related Products</h2>
                 <div className={styles.relatedProducts}>
-                    {/* <button onClick={slideToPrevItem}></button>
-                    {carouselFragment}
-                    <button onClick={slideToNextItem}></button> */}
-                    <Carousel data={relatedItem} />
+                    <Carousel data={relatedItem} category={params.category} />
                 </div>
             </div>
         </div>

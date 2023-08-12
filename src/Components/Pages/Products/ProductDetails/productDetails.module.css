@@ -32,17 +32,6 @@
 
 .mainImg {
     width: 70%;
-    animation: imgEffect 0.4s ease-out forwards;
-}
-
-@keyframes imgEffect {
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
 }
 
 .otherImgContainer {
@@ -181,8 +170,7 @@
 
 .about {
     font-size: 13px;
-    /* word-spacing: 1px; */
-    margin: 5px 0;
+    margin: 0;
     color: rgb(55, 55, 55);
 }
 

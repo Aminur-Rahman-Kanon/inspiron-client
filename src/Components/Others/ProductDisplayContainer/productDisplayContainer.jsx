@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './productDisplayContainer.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { optionContainerData } from '../Data/data';
 import RatingContainer from '../RatingContainer/ratingContainer';
 import { Link } from 'react-router-dom';
+import ProductOptionPanel from '../ProductOptionPanel/productOptionPanel';
 
 function ProductDisplayContainer({ product, category }) {
 
@@ -20,17 +19,8 @@ function ProductDisplayContainer({ product, category }) {
                     <RatingContainer rating={item.rating} />
                     <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                 </div>
-                <div className={styles.optionPanelContainer}>
-                    {
-                        optionContainerData.map((option, idx) => <div key={idx} className={styles.optionPanelItem}>
-                            <div className={styles.alertBoxContainer}>
-                                <div className={styles.alertBox}>
-                                    <p className={styles.alert}>{option.name}</p>
-                                </div>
-                            </div>
-                            <FontAwesomeIcon icon={option.icon} className={styles.optionPanelIcon} />
-                        </div>)
-                    }
+                <div className={styles.optionPanel}>
+                    <ProductOptionPanel />
                 </div>
             </Link>
         }) :
