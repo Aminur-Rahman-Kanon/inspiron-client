@@ -20,16 +20,9 @@ function App() {
 
     const {isLoading, error, data} = useQuery({
         queryKey: ['data'],
-        queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/all-products').then(res => res.json()).then(result => result.data),
+        queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
         staleTime: 100000
     });
-    
-    // useEffect(() => {
-    //     fetch('https://inspiron-server-9gmf.onrender.com/products/all-products')
-    //     .then(res => res.json())
-    //     .then(result => setProducts(result.data))
-    //     .catch(err => console.log(err));
-    // }, []);
 
     console.log(data);
 
@@ -60,8 +53,8 @@ function App() {
                 <Sidedrawer sidedrawer={sidedrawer}/>
                 <Routes>
                     <Route path='/' element={<HomepageMain />}/>
-                    <Route path='/product/:category/:productId' element={<ProductDetails />} />
                     <Route path='/shop/:category' element={<Shop />} />
+                    <Route path='/shop/:category/:productId' element={<ProductDetails />} />
                 </Routes>
                 <Footer />
             </AuthContext.Provider>

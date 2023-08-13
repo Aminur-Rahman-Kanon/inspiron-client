@@ -10,35 +10,32 @@ import Carousel from '../../../Others/Carousel/carousel';
 function ProductDetails() {
 
     const params = useParams();
-    const products = useContext(AuthContext).products;
 
     const [item, setItem] = useState(null);
     const [relatedItem, setRelatedItem] = useState([]);
     const [imgIdx, setImgIdx] = useState(0);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
-
-    useEffect(() => {
-        if (products){
-            if (products[params.category]){
-                const category = JSON.parse(JSON.stringify(products[params.category]));
-                let productIdx;
-                if (item === null && category !== undefined){
-                    const product = category.filter((item, idx) => {
-                        if (item._id === params.productId){
-                            productIdx = idx;
-                            return item;
-                        }
-                    })
-                    setItem(product[0]);
-                    category.splice(productIdx, 1);
-                    setRelatedItem(category)
+        fetch(`https://inspiron-server-9gmf.onrender.com/shop/${params.category}`).then(res => res.json()).then(result => {
+            const data = JSON.parse(JSON.stringify(result.data));
+            if (data.length){
+                let itemIdx;
+                data.forEach((item, idx) => {
+                    if (item._id === params.productId){
+                        return itemIdx = idx;
+                    }
+                })
+                if (itemIdx !== undefined){
+                    const product = data[itemIdx];
+                    data.splice(itemIdx, 1);
+                    setItem(product);
+                    setRelatedItem(data);
                 }
             }
-        }
-    }, [products]);
+        }).catch(err => console.log(err));
+    }, [])
+
+    console.log(item);
 
     const productDisplay = item !== null ? <section className={styles.productDisplayContainer}>
         <div className={styles.productDisplayItem}>
@@ -86,20 +83,22 @@ function ProductDetails() {
         <h3>No item</h3>
     </section>
 
-    const relatedItemDisplay = relatedItem.length ? relatedItem.map(relatedItems => <div key={relatedItems._id} className={styles.relatedItem}>
-                <div className={styles.relatedImgContainer}>
-                    <img src={relatedItems.img[0]} alt={relatedItems.title} className={styles.relatedImg} />
-                    <h4 className={styles.productDetailsH4}>{relatedItems.title}</h4>
-                </div>
-                <div className={styles.relatedItemDetailsContainer}>
-                    <RatingContainer rating={relatedItems.rating} />
-                    <h4 className={styles.productDetailsH4}>{relatedItems.price}</h4>
-                </div>
-            </div>)
-    :
-    <section className={styles.defaultRelatedContainer}>
-        <h4 className={styles.productDetailsH4}>No Item</h4>
-    </section>
+    // const relatedItemDisplay = relatedItem.length ? relatedItem.map(relatedItems => <a href={`/shop/${params.category}/${relatedItems._id}`}
+    //         key={relatedItems._id}
+    //         className={styles.relatedItem}>
+    //             <div className={styles.relatedImgContainer}>
+    //                 <img src={relatedItems.img[0]} alt={relatedItems.title} className={styles.relatedImg} />
+    //                 <h4 className={styles.productDetailsH4}>{relatedItems.title}</h4>
+    //             </div>
+    //             <div className={styles.relatedItemDetailsContainer}>
+    //                 <RatingContainer rating={relatedItems.rating} />
+    //                 <h4 className={styles.productDetailsH4}>{relatedItems.price}</h4>
+    //             </div>
+    //         </a>)
+    // :
+    // <section className={styles.defaultRelatedContainer}>
+    //     <h4 className={styles.productDetailsH4}>No Item</h4>
+    // </section>
 
     return (
         <div className={styles.productDetailsContainer}>

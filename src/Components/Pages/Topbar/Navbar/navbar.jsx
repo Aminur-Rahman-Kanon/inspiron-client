@@ -8,7 +8,7 @@ function Navbar () {
                 <a href='/' className={styles.navbarLink}>Home</a>
             </li>
             <li className={styles.navbarItem}>
-                <a href='#' className={styles.navbarLink}>Shop</a>
+                <a href='/shop/smartphone' className={styles.navbarLink}>Shop</a>
             </li>
             <li className={styles.navbarItem}>
                 <a href='#' className={styles.navbarLink}>Products</a>

@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import Backdrop from '../../Others/Backdrop/backdrop';
 
-function Shop({ toggleBackdrop }) {
+function Shop() {
 
     const params = useParams();
 
@@ -47,7 +47,9 @@ function Shop({ toggleBackdrop }) {
     const displayProducts = products.length ? <div className={styles.productDisplayContainer}>
         {
             products.map(item => {
-                return <div key={item.title} className={styles.productsItem}>
+                return <Link key={item.title}
+                             to={`/shop/${category}/${item._id}`}
+                             className={styles.productsItem}>
                     <div className={styles.productsImgContainer}>
                         <img src={item.img[0]} alt={item.title} className={styles.productsImg} />
                         <h4 className={styles.productsH4}>{item.title}</h4>
@@ -59,7 +61,7 @@ function Shop({ toggleBackdrop }) {
                     <div className={styles.optionPanel}>
                         <ProductOptionPanel />
                     </div>
-                </div>
+                </Link>
             })
         }
     </div>
