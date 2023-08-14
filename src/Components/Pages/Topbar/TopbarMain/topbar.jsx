@@ -9,7 +9,9 @@ function Topbar ({ changeSidedrawer }) {
     return (
         <div className={styles.topBarContainer}>
             <div className={styles.toBarItemContainer}>
-                <img src={logo} alt="inspiron" className={styles.logo} />
+                <a href='/' className={styles.logoContainer}>
+                    <img src={logo} alt="inspiron" className={styles.logo} />
+                </a>
                 <Drawtoggle toggleSidedrawer={changeSidedrawer}/>
             </div>
             <div className={styles.toBarItemContainer}>

@@ -47,7 +47,7 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{ products: data }}>
+            <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop }}>
                 <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
                 <Topbar changeSidedrawer={openSidedrawer} />
                 <Sidedrawer sidedrawer={sidedrawer}/>
