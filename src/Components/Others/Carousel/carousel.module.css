@@ -73,8 +73,7 @@
 
 .carouselItem {
     text-decoration: none;
-    min-width: 200px;
-    min-height: 250px;
+    min-width: 320px;
     margin: 5px;
     padding: 5px;
     box-sizing: border-box;
@@ -82,8 +81,12 @@
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgb(237, 237, 237);
+    /* border: 1px solid rgb(237, 237, 237); */
     border-radius: 5px;
+}
+
+.carouselItem:not(:last-child){
+    border-right: 1px solid rgb(227, 225, 225);
 }
 
 .carouselImgContainer {
@@ -97,7 +100,7 @@
 
 .carouselImg {
     width: 50%;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 
 .carouselDetailsContainer {

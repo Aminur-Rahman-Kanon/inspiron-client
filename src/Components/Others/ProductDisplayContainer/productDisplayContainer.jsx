@@ -10,7 +10,8 @@ function ProductDisplayContainer({ product, category }) {
 
     if (product !== undefined){
         displayProducts = Object.keys(product).length ? product[category].map((item, idx) => {
-            return <Link to= {`/shop/${category}/${item._id}`} key={idx} className={styles.productsDisplayItem}>
+            const productLink = `/shop/${category}/${item._id}`;
+            return <Link to= {productLink} key={idx} className={styles.productsDisplayItem}>
                 <div className={styles.productsImgContainer}>
                     <img src={item.img[0]} alt={item.title} className={styles.productsImg} />
                     <h4 className={styles.productsH4}>{item.title}</h4>
@@ -20,7 +21,7 @@ function ProductDisplayContainer({ product, category }) {
                     <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                 </div>
                 <div className={styles.optionPanel}>
-                    <ProductOptionPanel />
+                    <ProductOptionPanel link={productLink} />
                 </div>
             </Link>
         }) :

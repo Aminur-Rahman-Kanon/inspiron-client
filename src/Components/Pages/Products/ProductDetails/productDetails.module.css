@@ -46,25 +46,26 @@
 
 .otherImgItem {
     width: 100px;
+    height: 100px;
     margin: 0 10px;
+    padding: 5px;
+    box-sizing: border-box;
     transition: all 0.3s ease;
     border: 1px solid #edecec;
     border-radius: 2px;
+    transition: all 0.3s ease-out;
+}
+
+.otherImgItem.activeImg {
+    border: 1px solid #4d53f6;
 }
 
 .otherImgItem:hover {
-    transform: scale(1.1);
-    filter: brightness(1);
-    /* border: 1px solid #dddddd2e; */
+    border: 1px solid #4d53f6;
 }
 
 .otherImg {
     width: 100%;
-    filter: brightness(0.7);
-}
-
-.otherImg.activeImg {
-    filter: brightness(1);
 }
 
 .actionContainer {

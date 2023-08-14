@@ -44,9 +44,9 @@ function ProductDetails() {
             </div>
             <div className={styles.otherImgContainer}>
                 {item.img.map((imgs, idx) => <div key={idx}
-                                                  className={styles.otherImgItem}
+                                                  className={imgIdx === idx ? `${styles.otherImgItem} ${styles.activeImg}` : styles.otherImgItem}
                                                   onClick={() => setImgIdx(idx)}>
-                    <img src={imgs} alt={item.title} className={imgIdx === idx ? `${styles.otherImg} ${styles.activeImg}` : styles.otherImg} />
+                    <img src={imgs} alt={item.title} className={styles.otherImg} />
                 </div>)}
             </div>
         </div>

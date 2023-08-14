@@ -29,6 +29,8 @@ function Shop() {
         .catch(err => console.log(err));
     }, [category]);
 
+    console.log(products);
+
     const closeSidePanel = (item) => {
         setCategory(item);
         setToggleSidebar(false);
@@ -47,8 +49,9 @@ function Shop() {
     const displayProducts = products.length ? <div className={styles.productDisplayContainer}>
         {
             products.map(item => {
+                const productLink = `/shop/${category}/${item._id}`;
                 return <Link key={item.title}
-                             to={`/shop/${category}/${item._id}`}
+                             to={productLink}
                              className={styles.productsItem}>
                     <div className={styles.productsImgContainer}>
                         <img src={item.img[0]} alt={item.title} className={styles.productsImg} />
@@ -59,7 +62,7 @@ function Shop() {
                         <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                     </div>
                     <div className={styles.optionPanel}>
-                        <ProductOptionPanel />
+                        <ProductOptionPanel link={productLink}/>
                     </div>
                 </Link>
             })

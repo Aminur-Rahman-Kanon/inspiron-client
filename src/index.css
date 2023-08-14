@@ -12,7 +12,13 @@ body {
   scroll-behavior: smooth;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: rgb(229, 226, 226);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 7px;
+  background-color: #4d53f6;
+  border-radius: 5px;
+}
