@@ -16,7 +16,7 @@ function Carousel({data, category}) {
             </div>
             <div className={styles.carouselDetailsContainer}>
                 <RatingContainer rating={relatedItems.rating} />
-                <h3 className={styles.carouselH3}>{relatedItems.price}</h3>
+                <h3 className={styles.carouselH3}>&pound;{relatedItems.price}</h3>
             </div>
         </a>
     )
@@ -27,11 +27,11 @@ function Carousel({data, category}) {
                 {displayItem}
             </div>
             <div className={styles.pagintaionContainer}>
-                <button disabled={!data.length} className={styles.angleIconContainer} onClick={() => otherItemRef.current.scrollBy({ top: 0 ,left: -270, behavior: "smooth" })}>
+                <button disabled={!data.length} className={styles.angleIconContainer} onClick={() => otherItemRef.current.scrollBy({ top: 0 ,left: -259, behavior: "smooth" })}>
                     <FontAwesomeIcon icon={faAngleLeft} className={styles.angleIcon}/>
                 </button>
 
-                <button disabled={!data.length} className={styles.angleIconContainer} onClick={() => otherItemRef.current.scrollBy({ top: 0, left: 270, behavior: "smooth" })}>
+                <button disabled={!data.length} className={styles.angleIconContainer} onClick={() => otherItemRef.current.scrollBy({ top: 0, left: 259, behavior: "smooth" })}>
                     <FontAwesomeIcon icon={faAngleRight} className={styles.angleIcon}/>
                 </button>
             </div>

@@ -1,7 +1,4 @@
 .bottomPanelContainer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -24,12 +21,12 @@
 }
 
 .bottomPanelIcon {
-    font-size: 18px;
+    font-size: 16px;
     color: inherit;
 }
 
 .bottomPanelP {
-    font-size: 12px;
+    font-size: 11px;
     margin: 5px 0;
     color: inherit;
 }

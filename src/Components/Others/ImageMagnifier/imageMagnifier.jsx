@@ -16,7 +16,7 @@ function ImageMagnifier({display, src, cursorPosition}) {
         backgroundColor: 'white',
         backgroundImage: `url('${src}')`,
         backgroundRepeat: 'no-repeat',
-        // pointerEvents: 'none',
+        pointerEvents: 'none',
         backgroundSize: `${500 *1.5}px ${500*1.5}px`,
         backgroundPositionX: `${-cursorPosition.x * 1.5 + 300 / 2}px`,
         backgroundPositionY: `${-cursorPosition.y * 1.5 + 300 / 2}px`

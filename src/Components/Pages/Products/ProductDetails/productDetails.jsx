@@ -7,15 +7,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import Carousel from '../../../Others/Carousel/carousel';
 import ImageMagnifier from '../../../Others/ImageMagnifier/imageMagnifier';
+import AddItem from '../../../Others/AddItem/addItem';
+import FacebookShare from '../../../Others/FacebookShare/facebookShare';
 
 function ProductDetails() {
-
-    const context = useContext(AuthContext)
-
     const params = useParams();
+
+    const shareLink = `https://inspiron-19oa.onrender.com/${window.location.pathname}/`;
 
     const [item, setItem] = useState(null);
     const [relatedItem, setRelatedItem] = useState([]);
+    const [itemCount, setItemCount] = useState(0);
     const [imgIdx, setImgIdx] = useState(0);
     const [imgMagnify, setImgMagnify] = useState(false);
     const [[x, y], setXY] = useState([0, 0]);
@@ -81,6 +83,10 @@ function ProductDetails() {
                     <FontAwesomeIcon icon={faEye} className={styles.watchingIcon} />
                     <span className={styles.watchingPeople}>{item.watching} people are watching this product</span>
                 </div>
+                <FacebookShare link={shareLink} title={item.title} />
+                <AddItem item={itemCount}
+                         increment={() => setItemCount((itemCount) => itemCount+1)}
+                         decrement={() => setItemCount((itemCount) => itemCount-1)}/>
                 <div className={styles.actionContainer}>
                     <Link className={styles.actionLink}>Add to cart</Link>
                     <Link className={styles.actionLink}>Buy now</Link>

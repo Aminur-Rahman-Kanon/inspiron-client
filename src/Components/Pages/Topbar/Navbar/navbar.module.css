@@ -25,7 +25,7 @@
 @media (max-width: 932px) {
     .navbarContainer {
         flex-flow: column;
-        padding: 10px;
+        padding: 0 10px;
         align-items: flex-start;
     }
 }
