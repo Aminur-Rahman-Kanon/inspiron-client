@@ -37,13 +37,13 @@ function Shop() {
         setBackdrop(false);
     }
 
-    const categories = productsCategory.map((category, idx) => <div key={idx}
-        onClick={() => closeSidePanel(category.linkName)}
+    const categories = productsCategory.map((item, idx) => <div key={idx}
+        onClick={() => closeSidePanel(item.linkName)}
         className={styles.categoryListItem}>
         <div className={styles.categoryImgContainer}>
-            <img src={category.img} alt={category.title} className={styles.categoryImg}/>
+            <img src={item.img} alt={item.title} className={styles.categoryImg}/>
         </div>
-        <p className={styles.categoryP}>{category.title}</p>
+        <p className={styles.categoryP} style={category === item.linkName ? {color: '#4d53f6'} : {color: 'rgb(75, 75, 75)'}}>{item.title}</p>
     </div>)
 
     const displayProducts = products.length ? <div className={styles.productDisplayContainer}>

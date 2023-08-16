@@ -44,4 +44,8 @@
     .topbarPanelItem:last-child{
         display: block;
     }
+
+    .topbarPanelIcon {
+        font-size: 20px;
+    }
 }

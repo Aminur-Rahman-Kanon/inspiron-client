@@ -7,11 +7,11 @@ import BottomPanel from '../BottomPanel/bottomPanel';
 function Sidedrawer ({ sidedrawer }) {
     return (
         <div className={sidedrawer ? `${styles.sidedrawerContainer} ${styles.open}` : styles.sidedrawerContainer}>
+            <BottomPanel />
             <div className={styles.logoContainer}>
                 <img src={logo} alt="inspiron" className={styles.logo} />
             </div>
             <Navbar />
-            <BottomPanel />
         </div>
     )
 }

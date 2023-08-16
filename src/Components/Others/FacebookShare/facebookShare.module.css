@@ -1,0 +1,27 @@
+.fbShareContainer {
+    display: flex;
+    margin: 10px 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fbShareLink {
+    text-decoration: none;
+    padding: 5px 8px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    background-color: #3b5998;
+    color: rgb(225, 224, 224);
+}
+
+.fbIcon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.fbTag {
+    font-size: 12px;
+}
