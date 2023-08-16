@@ -83,7 +83,7 @@ function ProductDetails() {
                     <FontAwesomeIcon icon={faEye} className={styles.watchingIcon} />
                     <span className={styles.watchingPeople}>{item.watching} people are watching this product</span>
                 </div>
-                <FacebookShare link={shareLink} title={item.title} />
+                <FacebookShare link={shareLink} title={item.title} image={item.img[0]} description={item.details}/>
                 <AddItem item={itemCount}
                          increment={() => setItemCount((itemCount) => itemCount+1)}
                          decrement={() => setItemCount((itemCount) => itemCount-1)}/>
