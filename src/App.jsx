@@ -11,6 +11,8 @@ import { disableScroll } from './Components/Others/HelperFunction/helperFunction
 import Footer from './Components/Pages/Footer/footer';
 import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
 import Shop from './Components/Pages/Shop/shop';
+import { HelmetProvider } from 'react-helmet-async';
+
 
 function App() {
 
@@ -47,17 +49,19 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop }}>
-                <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
-                <Topbar changeSidedrawer={openSidedrawer} />
-                <Sidedrawer sidedrawer={sidedrawer}/>
-                <Routes>
-                    <Route path='/' element={<HomepageMain />}/>
-                    <Route path='/shop/:category' element={<Shop />} />
-                    <Route path='/shop/:category/:productId' element={<ProductDetails />} />
-                </Routes>
-                <Footer />
-            </AuthContext.Provider>
+            <HelmetProvider>
+                <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop }}>
+                    <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
+                    <Topbar changeSidedrawer={openSidedrawer} />
+                    <Sidedrawer sidedrawer={sidedrawer}/>
+                    <Routes>
+                        <Route path='/' element={<HomepageMain />}/>
+                        <Route path='/shop/:category' element={<Shop />} />
+                        <Route path='/shop/:category/:productId' element={<ProductDetails />} />
+                    </Routes>
+                    <Footer />
+                </AuthContext.Provider>
+            </HelmetProvider>
         </div>
     );
 }
