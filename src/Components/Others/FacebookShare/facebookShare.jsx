@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Helmet } from 'react-helmet';
 
-function FacebookShare({title, description, image}) {
-
-    const link = encodeURI(window.location.href);
+function FacebookShare({link, title, description, image}) {
 
     return (
         <>

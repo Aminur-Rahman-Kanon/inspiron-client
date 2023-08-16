@@ -13,7 +13,8 @@ import FacebookShare from '../../../Others/FacebookShare/facebookShare';
 function ProductDetails() {
     const params = useParams();
 
-    const shareLink = `https://inspiron-19oa.onrender.com/${window.location.pathname}/`;
+    // const shareLink = `https://inspiron-19oa.onrender.com/${window.location.pathname}/`;
+    const shareLink = encodeURI(window.location.href);
 
     const [item, setItem] = useState(null);
     const [relatedItem, setRelatedItem] = useState([]);
