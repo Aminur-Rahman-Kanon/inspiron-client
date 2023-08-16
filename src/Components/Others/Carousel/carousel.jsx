@@ -3,6 +3,7 @@ import styles from './carousel.module.css';
 import RatingContainer from '../RatingContainer/ratingContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import ProductOptionPanel from '../ProductOptionPanel/productOptionPanel';
 
 function Carousel({data, category}) {
     const otherItemRef = useRef();
@@ -17,6 +18,9 @@ function Carousel({data, category}) {
             <div className={styles.carouselDetailsContainer}>
                 <RatingContainer rating={relatedItems.rating} />
                 <h3 className={styles.carouselH3}>{relatedItems.price}</h3>
+            </div>
+            <div className={styles.productOptionContainer}>
+                <ProductOptionPanel link={`/shop/${category}/${relatedItems._id}`}/>
             </div>
         </a>
     )

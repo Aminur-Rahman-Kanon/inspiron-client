@@ -6,6 +6,9 @@
 
 .optionPanelItem {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .optionPanelItem:hover .alertBoxContainer {
@@ -64,4 +67,10 @@
 .optionPanelIcon:hover {
     color: white;
     background-color: #4d53f6;
+}
+
+.quickViewLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

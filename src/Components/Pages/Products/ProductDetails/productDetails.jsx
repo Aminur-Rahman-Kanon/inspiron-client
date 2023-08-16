@@ -7,10 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import Carousel from '../../../Others/Carousel/carousel';
 import ImageMagnifier from '../../../Others/ImageMagnifier/imageMagnifier';
+import AddItem from '../../../Others/AddItem/addItem';
 
 function ProductDetails() {
-
-    const context = useContext(AuthContext)
 
     const params = useParams();
 
@@ -19,8 +18,10 @@ function ProductDetails() {
     const [imgIdx, setImgIdx] = useState(0);
     const [imgMagnify, setImgMagnify] = useState(false);
     const [[x, y], setXY] = useState([0, 0]);
+    const [itemAmount, setItemAmount] = useState(0);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         fetch(`https://inspiron-server-9gmf.onrender.com/shop/${params.category}`).then(res => res.json()).then(result => {
             const data = JSON.parse(JSON.stringify(result.data));
             if (data.length){
@@ -81,6 +82,9 @@ function ProductDetails() {
                     <FontAwesomeIcon icon={faEye} className={styles.watchingIcon} />
                     <span className={styles.watchingPeople}>{item.watching} people are watching this product</span>
                 </div>
+                <AddItem increment={() => setItemAmount((itemAmount) => setItemAmount(itemAmount+1))}
+                         decrement={() => setItemAmount((itemAmount) => itemAmount-1)}
+                         amount={itemAmount}/>
                 <div className={styles.actionContainer}>
                     <Link className={styles.actionLink}>Add to cart</Link>
                     <Link className={styles.actionLink}>Buy now</Link>

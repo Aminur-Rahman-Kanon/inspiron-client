@@ -209,6 +209,10 @@
         grid-template-columns: 1fr;
     }
 
+    .productDisplayItem {
+        padding: 0;
+    }
+
     .productDisplayItem:nth-of-type(1) {
         width: 80%;
         margin: 0 auto;
@@ -238,13 +242,12 @@
     }
 
     .actionContainer {
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .actionLink {
         width: 45%;
         margin-right: unset;
-        margin: 0 5PX;
     }
 }
 

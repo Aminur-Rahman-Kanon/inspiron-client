@@ -24,8 +24,6 @@ function App() {
         staleTime: 100000
     });
 
-    console.log(data);
-
     useEffect(() => {
         if (backdrop) {
             disableScroll();
