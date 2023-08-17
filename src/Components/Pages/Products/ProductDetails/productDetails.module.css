@@ -211,11 +211,8 @@
     }
 
     .productDisplayItem {
-<<<<<<< HEAD
         padding: 0;
-=======
         padding: 10px;
->>>>>>> da1b44640503ae649ecf4a9cea9280d827355f5b
     }
 
     .productDisplayItem:nth-of-type(1) {
