@@ -82,10 +82,7 @@
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
-=======
     border: 1px solid rgb(237, 237, 237);
->>>>>>> da1b44640503ae649ecf4a9cea9280d827355f5b
     border-radius: 5px;
 }
 
