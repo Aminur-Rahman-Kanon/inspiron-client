@@ -211,7 +211,11 @@
     }
 
     .productDisplayItem {
+<<<<<<< HEAD
+        padding: 0;
+=======
         padding: 10px;
+>>>>>>> da1b44640503ae649ecf4a9cea9280d827355f5b
     }
 
     .productDisplayItem:nth-of-type(1) {
@@ -240,13 +244,12 @@
     }
 
     .actionContainer {
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .actionLink {
         width: 45%;
         margin-right: unset;
-        margin: 0 5PX;
     }
 }
 

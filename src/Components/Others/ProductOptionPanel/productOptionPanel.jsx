@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function ProductOptionPanel({link}) {
     return (
         <div className={styles.optionPanelContainer}>
-            <div className={styles.optionPanelItem}>
+            <div className={styles.optionPanelItem} onClick={(e) => {e.stopPropagation()}}>
                 <div className={styles.alertBoxContainer}>
                     <div className={styles.alertBox}>
                         <p className={styles.alert}>Add to cart</p>
