@@ -27,6 +27,7 @@
     width: 20px;
     height: 20px;
     font-size: 10px;
+    font-weight: 800;
     z-index: 100;
     background-color: orange;
     border-radius: 50%;
@@ -34,6 +35,25 @@
     justify-content: center;
     align-items: center;
     color: rgb(55, 55, 55);
+}
+
+.topbarPanelItem {
+    position: relative;
+}
+
+.displayCart {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.topbarPanelItem:nth-of-type(4):hover .displayCart {
+    max-height: 480px;
+    opacity: 1;
 }
 
 @media (max-width: 932px) {

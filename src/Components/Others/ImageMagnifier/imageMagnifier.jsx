@@ -2,7 +2,6 @@ import React from 'react';
 
 function ImageMagnifier({display, src, cursorPosition}) {
     if (!display) return;
-    console.log(cursorPosition.x, cursorPosition.y);
     const styles = {
         position: 'absolute',
         top: '50%',

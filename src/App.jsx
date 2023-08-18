@@ -7,23 +7,24 @@ import HomepageMain from './Components/Pages/Homepage/HomepageMain/homepageMain'
 import Sidedrawer from './Components/Others/Sidedrawer/sidedrawer';
 import Backdrop from './Components/Others/Backdrop/backdrop';
 import AuthContext from './Components/Others/AuthContext/authContext';
-import { disableScroll } from './Components/Others/HelperFunction/helperFunction';
+import { disableScroll } from './Components/Others/UtilityFunction/utilityFunction';
 import Footer from './Components/Pages/Footer/footer';
 import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
 import Shop from './Components/Pages/Shop/shop';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
 
-    const [products, setProducts] = useState({});
     const [sidedrawer, setSiderawer] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
+    const [productCount, setProductCount] = useState(0);
 
     const {isLoading, error, data} = useQuery({
         queryKey: ['data'],
         queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
-        staleTime: 100000
+        staleTime: 99000000
     });
 
     useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
     return (
         <div className="App">
             <HelmetProvider>
-                <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop }}>
+                <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
                     <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
                     <Topbar changeSidedrawer={openSidedrawer} />
                     <Sidedrawer sidedrawer={sidedrawer}/>

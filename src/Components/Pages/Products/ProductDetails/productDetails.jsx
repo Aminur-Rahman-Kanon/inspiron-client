@@ -9,8 +9,12 @@ import Carousel from '../../../Others/Carousel/carousel';
 import ImageMagnifier from '../../../Others/ImageMagnifier/imageMagnifier';
 import AddItem from '../../../Others/AddItem/addItem';
 import FacebookShare from '../../../Others/FacebookShare/facebookShare';
+import { addItemToCart } from '../../../Others/UtilityFunction/utilityFunction';
+import { ToastContainer } from 'react-toastify';
 
 function ProductDetails() {
+    const context = useContext(AuthContext);
+
     const params = useParams();
 
     const shareLink = `https://inspiron-19oa.onrender.com/${window.location.pathname}`;
@@ -22,7 +26,6 @@ function ProductDetails() {
     const [imgIdx, setImgIdx] = useState(0);
     const [imgMagnify, setImgMagnify] = useState(false);
     const [[x, y], setXY] = useState([0, 0]);
-    const [itemAmount, setItemAmount] = useState(0);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -87,18 +90,20 @@ function ProductDetails() {
                     <span className={styles.watchingPeople}>{item.watching} people are watching this product</span>
                 </div>
                 <FacebookShare link={shareLink} title={item.title} image={item.img[0]} description={item.details}/>
-                <AddItem item={itemCount}
+                <AddItem amount={itemCount}
                          increment={() => setItemCount((itemCount) => itemCount+1)}
                          decrement={() => setItemCount((itemCount) => itemCount-1)}/>
                 <div className={styles.actionContainer}>
-                    <Link className={styles.actionLink}>Add to cart</Link>
-                    <Link className={styles.actionLink}>Buy now</Link>
+                    <button disabled={!itemCount}
+                            className={styles.actionButton}
+                            onClick={() => addItemToCart(context, item, itemCount)}>Add to cart</button>
+                    <button disabled={!itemCount} className={styles.actionButton}>Buy now</button>
                 </div>
             </div>
             <div className={styles.detailsContainer}>
                 <h4 className={styles.productDetailsH4}>Specification</h4>
                 <ul className={styles.detailsContainerLists}>
-                    {item.details.map(list => <li className={styles.detailsContainerList}>{list}</li>)}
+                    {item.details.map((list, idx) => <li key={idx} className={styles.detailsContainerList}>{list}</li>)}
                 </ul>
             </div>
             <div className={styles.aboutContainer}>
@@ -113,6 +118,8 @@ function ProductDetails() {
     </section>
 
     return (
+        <>
+        <ToastContainer />
         <div className={styles.productDetailsContainer}>
             {productDisplay}
             <div className={styles.relatedItemContainer}>
@@ -122,7 +129,8 @@ function ProductDetails() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
-export default ProductDetails
+export default ProductDetails;
