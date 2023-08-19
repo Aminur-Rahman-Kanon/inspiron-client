@@ -14,7 +14,7 @@ function ProductsType () {
 
     return (
         <>
-        <ToastContainer autoClose={5000} limit={5} />
+        <ToastContainer autoClose={1800} limit={5} />
         <div className={styles.productsTypeContainer}>
             <section className={styles.productsNavContainers}>
                 <button className={category === 'allProducts' ? `${styles.productsNavBtn} ${styles.active}` : styles.productsNavBtn}

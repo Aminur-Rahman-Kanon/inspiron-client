@@ -49,8 +49,6 @@ export const removeItemFromCart = (context, product) => {
     //filtering the item to remove
     const itemToDelete = Object.keys(cart).filter(item => item === product._id)[0];
     //if only 1 or no item exist in the array then remove the property
-    console.log(itemToDelete);
-    console.log(cart[itemToDelete]);
     if (cart[itemToDelete].length <= 1){
         delete cart[itemToDelete];
         sessionStorage.setItem('cart', JSON.stringify(cart));
@@ -62,4 +60,16 @@ export const removeItemFromCart = (context, product) => {
         context.toggleProductCount(context.productCount -1);
     }
     
+}
+
+export const removeItems = (context, product) => {
+    const cart = JSON.parse(sessionStorage.getItem('cart'));
+    //if no item in the cart then abort
+    if (cart === null) return;
+    const itemToDelete = Object.keys(cart).filter(item => item === product._id)[0];
+    if (itemToDelete){
+        delete cart[itemToDelete];
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        context.toggleProductCount(context.productCount -1);
+    }
 }

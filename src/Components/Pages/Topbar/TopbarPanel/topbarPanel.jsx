@@ -8,7 +8,6 @@ import DisplayCartItem from '../DisplayCartItem/displayCartItem';
 function TopbarPanel () {
     
     const cartObj = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : {}
-    console.log(cartObj);
 
     return (
         <ul className={styles.topbarPanelContainer}>

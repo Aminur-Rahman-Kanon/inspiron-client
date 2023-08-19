@@ -6,6 +6,7 @@ import Topbar from './Components/Pages/Topbar/TopbarMain/topbar';
 import HomepageMain from './Components/Pages/Homepage/HomepageMain/homepageMain';
 import Sidedrawer from './Components/Others/Sidedrawer/sidedrawer';
 import Backdrop from './Components/Others/Backdrop/backdrop';
+import Cart from './Components/Pages/Cart/cart';
 import AuthContext from './Components/Others/AuthContext/authContext';
 import { disableScroll } from './Components/Others/UtilityFunction/utilityFunction';
 import Footer from './Components/Pages/Footer/footer';
@@ -57,6 +58,7 @@ function App() {
                         <Route path='/' element={<HomepageMain />}/>
                         <Route path='/shop/:category' element={<Shop />} />
                         <Route path='/shop/:category/:productId' element={<ProductDetails />} />
+                        <Route path='/cart' element={<Cart />} />
                     </Routes>
                     <Footer />
                 </AuthContext.Provider>

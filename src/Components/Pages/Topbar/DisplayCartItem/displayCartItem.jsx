@@ -23,7 +23,6 @@ function DisplayCartItem({ cart }) {
         </div>)
     }
     else {
-        console.log(cart);
         displayCart = <div className={styles.defaultItem}>
             <h4 className={styles.heading}>No Item</h4>
         </div>
@@ -35,8 +34,15 @@ function DisplayCartItem({ cart }) {
                 {displayCart}
             </div>
             <div className={styles.actionContainer}>
-                <button disabled={!Object.keys(cart).length} to='#' className={styles.actionBtn}>Checkout Now</button>
-                <button disabled={!Object.keys(cart).length} to='#' className={styles.actionBtn}>View Cart</button>
+                <button disabled={!Object.keys(cart).length}
+                        className={styles.actionBtn}>
+                        Checkout Now
+                </button>
+                <button disabled={!Object.keys(cart).length}
+                        className={styles.actionBtn}
+                        onClick={() => window.location.assign('/cart')}>
+                        View Cart
+                </button>
             </div>
         </div>
     )
