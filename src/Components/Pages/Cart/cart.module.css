@@ -196,7 +196,7 @@
     border: 1px solid lightgray;
     border-radius: 2px 0 0 2px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -373,7 +373,7 @@
     }
 
     .couponInput {
-        width: 80%;
+        width: 75%;
     }
 
     .cartFooterContainer {
