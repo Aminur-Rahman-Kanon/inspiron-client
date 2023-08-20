@@ -13,7 +13,6 @@ import Footer from './Components/Pages/Footer/footer';
 import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
 import Shop from './Components/Pages/Shop/shop';
 import { HelmetProvider } from 'react-helmet-async';
-import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -47,10 +46,12 @@ function App() {
         setSiderawer(false);
     }
 
+    console.log(data);
+
     return (
         <div className="App">
             <HelmetProvider>
-                <AuthContext.Provider value={{ products: data, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
+                <AuthContext.Provider value={{ data: data, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
                     <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
                     <Topbar changeSidedrawer={openSidedrawer} />
                     <Sidedrawer sidedrawer={sidedrawer}/>

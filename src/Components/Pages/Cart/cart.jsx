@@ -14,31 +14,39 @@ function Cart() {
 
     const [coupon, setCoupon] = useState('');
 
-    const cartDisplay = Object.keys(cart).length ? Object.values(cart).map(item => <div key={item[0]._id} className={styles.cartItem}>
-        <div className={styles.cartItemImgContainerMain}>
-            <div className={styles.cartImgContainer}>
-                <img src={item[0].img[0]} alt={item[0].title} className={styles.cartImg} />
+    const discount = 10;
+
+    let subtotal = 0;
+
+    
+    const cartDisplay = Object.keys(cart).length ? Object.values(cart).map(item => {
+        subtotal += item[0].price * item.length;
+        return <div key={item[0]._id} className={styles.cartItem}>
+            <div className={styles.cartItemImgContainerMain}>
+                <div className={styles.cartImgContainer}>
+                    <img src={item[0].img[0]} alt={item[0].title} className={styles.cartImg} />
+                </div>
+                <div className={styles.cartInfoContainer}>
+                    <p className={styles.cartTitle}>{item[0].title}</p>
+                    <p className={styles.cartTitle}>Item id: fghy22kl2</p>
+                    <p className={styles.cartTitle}>price: &pound;{item[0].price}</p>
+                </div>
             </div>
-            <div className={styles.cartInfoContainer}>
-                <p className={styles.cartTitle}>{item[0].title}</p>
-                <p className={styles.cartTitle}>Item id: fghy22kl2</p>
-                <p className={styles.cartTitle}>price: &pound;{item[0].price}</p>
+            <div className={styles.cartItemElements}>
+                <div className={styles.cartItemElement}>
+                    <button className={styles.quantityBtn} onClick={() => addItemToCart(context, item[0], item.length + 1)}>+</button>
+                    <div className={styles.quantityCount}>{item.length}</div>
+                    <button className={styles.quantityBtn} onClick={() => removeItemFromCart(context, item[0])}>-</button>
+                </div>
+                <div className={styles.cartItemElement}>
+                    <span className={styles.subtotal}>&pound;{Number(item.length)* Number(item[0].price)}</span>
+                </div>
+                <div className={styles.cartItemElement}>
+                    <button className={styles.removeBtn} onClick={() => removeItems(context, item[0])}>Remove</button>
+                </div>
             </div>
         </div>
-        <div className={styles.cartItemElements}>
-            <div className={styles.cartItemElement}>
-                <button className={styles.quantityBtn} onClick={() => addItemToCart(context, item[0], item.length + 1)}>+</button>
-                <div className={styles.quantityCount}>{item.length}</div>
-                <button className={styles.quantityBtn} onClick={() => removeItemFromCart(context, item[0])}>-</button>
-            </div>
-            <div className={styles.cartItemElement}>
-                <span className={styles.subtotal}>&pound;{Number(item.length)* Number(item[0].price)}</span>
-            </div>
-            <div className={styles.cartItemElement}>
-                <button className={styles.removeBtn} onClick={() => removeItems(context, item[0])}>Remove</button>
-            </div>
-        </div>
-    </div>)
+    })
     :
     <div>
         <h4 className={styles.cartH4}>No item in the cart</h4>
@@ -69,16 +77,15 @@ function Cart() {
                         </div>
                     </div>
                     <div className={styles.totalContainer}>
-                        {/* <h3 className={styles.totalH3}>Cart Totals</h3> */}
                         <div className={styles.totalItems}>
                             <div className={styles.totalItem}>
-                                <span className={styles.totalLabel}>Subtotal: &pound;800</span>
+                                <span className={styles.totalLabel}>Subtotal: &pound;{subtotal}</span>
                             </div>
                             <div className={styles.totalItem}>
-                                <span className={styles.totalLabel}>Discount: &pound;10</span>
+                                <span className={styles.totalLabel}>Discount: &pound;{discount}</span>
                             </div>
                             <div className={styles.totalItem}>
-                                <span className={styles.totalLabel} style={{fontWeight: '700', fontSize: '13px'}}>Total Price: &pound;790</span>
+                                <span className={styles.totalLabel} style={{fontWeight: '700', fontSize: '13px'}}>Total Price: &pound;{subtotal - discount}</span>
                             </div>
                         </div>
                     </div>
