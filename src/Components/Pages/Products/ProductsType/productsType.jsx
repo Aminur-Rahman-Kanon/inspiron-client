@@ -12,6 +12,7 @@ function ProductsType () {
 
     const [category, setCategory] = useState('allProducts');
 
+
     return (
         <>
         <ToastContainer autoClose={1800} limit={5} />
@@ -35,7 +36,7 @@ function ProductsType () {
                 </button>
             </section>
             <section className={styles.productsDisplayContainer}>
-                <ProductDisplayContainer product={context.products} category={category} />
+                <ProductDisplayContainer product={context.data.products} category={category} />
             </section>
         </div>
         </>

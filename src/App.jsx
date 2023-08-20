@@ -51,7 +51,7 @@ function App() {
     return (
         <div className="App">
             <HelmetProvider>
-                <AuthContext.Provider value={{ data: data, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
+                <AuthContext.Provider value={{ data: data ? data: {}, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
                     <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
                     <Topbar changeSidedrawer={openSidedrawer} />
                     <Sidedrawer sidedrawer={sidedrawer}/>
