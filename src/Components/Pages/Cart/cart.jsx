@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styles from './cart.module.css';
 import { useNavigate } from 'react-router-dom';
 import payment from '../../../Assets/payment-method.png';
@@ -8,7 +8,7 @@ import { addItemToCart, removeItemFromCart, removeItems } from '../../Others/Uti
 function Cart() {
     const context = useContext(AuthContext);
 
-    const cart = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : {};
+    const [cart, setCart] = useState({});
 
     const navigate = useNavigate();
 
@@ -17,6 +17,16 @@ function Cart() {
     const discount = 10;
 
     let subtotal = 0;
+
+    useEffect(() => {
+        fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ deviceId: context.data.deviceId })
+        }).then(res => res.json()).then(data => setCart(data.data)).catch(err => console.log(err));
+    }, [context]);
 
     
     const cartDisplay = Object.keys(cart).length ? Object.values(cart).map(item => {

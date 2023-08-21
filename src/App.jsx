@@ -46,7 +46,7 @@ function App() {
         setSiderawer(false);
     }
 
-    console.log(data);
+    console.log(productCount);
 
     return (
         <div className="App">

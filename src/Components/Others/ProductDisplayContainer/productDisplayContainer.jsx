@@ -33,9 +33,11 @@ function ProductDisplayContainer({ product, category }) {
 
 
     return (
+        <>
         <div className={styles.productDisplayContainer}>
             {displayProducts}
         </div>
+        </>
     )
 }
 

@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './topbarPanel.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import DisplayCartItem from '../DisplayCartItem/displayCartItem';
+import AuthContext from '../../../Others/AuthContext/authContext';
 
 function TopbarPanel () {
     
-    const cartObj = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : {}
+    const context = useContext(AuthContext);
+
+    const [item, setitem] = useState({});
+
+    useEffect(() => {
+        fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'Application/json'
+            },
+            body: JSON.stringify({ deviceId: context.data.deviceId })
+        }).then(res =>res.json()).then(data => setitem(data.data)).catch(err => console.log(err));
+    }, [context])
+
+    // const cartObj = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : {}
 
     return (
         <ul className={styles.topbarPanelContainer}>
@@ -29,10 +44,10 @@ function TopbarPanel () {
             <li className={styles.topbarPanelItem}>
                 <a href='#' className={styles.topbarPanelLink}>
                     <FontAwesomeIcon icon={faBagShopping} className={styles.topbarPanelIcon}/>
-                    <span className={styles.itemCount}>{cartObj && Object.keys(cartObj).length || 0}</span>
+                    <span className={styles.itemCount}>{item && Object.keys(item).length || 0}</span>
                 </a>
                 <div className={styles.displayCart}>
-                    <DisplayCartItem cart={cartObj} />
+                    <DisplayCartItem cart={item} />
                 </div>
             </li>
         </ul>
