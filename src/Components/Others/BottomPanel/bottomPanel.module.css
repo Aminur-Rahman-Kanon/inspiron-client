@@ -1,6 +1,6 @@
 .bottomPanelContainer {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     box-sizing: border-box;
     display: none;
     justify-content: space-around;
@@ -21,13 +21,13 @@
 }
 
 .bottomPanelIcon {
-    font-size: 16px;
+    font-size: 13px;
     color: inherit;
 }
 
 .bottomPanelP {
-    font-size: 11px;
-    margin: 5px 0;
+    font-size: 9px;
+    margin: 1px 0;
     color: inherit;
 }
 

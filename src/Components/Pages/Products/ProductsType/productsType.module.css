@@ -21,8 +21,9 @@
     outline: none;
     background-color: transparent;
     color: grey;
-    font-size: 18px;
-    font-weight: 700;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
     margin: 10px;
     cursor: pointer;
 }
@@ -36,13 +37,20 @@
     max-width: 1300px;
     display: grid;
     margin: 20px auto;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 4 1fr;
     place-items: center;
 }
 
-@media (max-width: 432px) {
+@media (max-width: 768px) {
     .productsNavBtn {
         margin: 5px;
-        font-size: 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 450px) {
+    .productsNavBtn {
+        margin: 5px;
+        font-size: 10px;
     }
 }

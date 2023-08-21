@@ -15,8 +15,9 @@
 }
 
 .topbarPanelIcon {
-    color: rgb(72, 72, 72);
-    font-size: 15px;
+    color: rgb(86, 86, 86);
+    /* color: #4d53f6; */
+    font-size: 16px;
     padding: 6px;
 }
 
@@ -66,6 +67,6 @@
     }
 
     .topbarPanelIcon {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
