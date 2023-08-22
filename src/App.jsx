@@ -12,6 +12,7 @@ import { disableScroll } from './Components/Others/UtilityFunction/utilityFuncti
 import Footer from './Components/Pages/Footer/footer';
 import ProductDetails from './Components/Pages/Products/ProductDetails/productDetails';
 import Shop from './Components/Pages/Shop/shop';
+import Checkout from './Components/Pages/Checkout/checkout';
 import { HelmetProvider } from 'react-helmet-async';
 
 
@@ -60,6 +61,7 @@ function App() {
                         <Route path='/shop/:category' element={<Shop />} />
                         <Route path='/shop/:category/:productId' element={<ProductDetails />} />
                         <Route path='/cart' element={<Cart />} />
+                        <Route path='/checkout' element={<Checkout />} />
                     </Routes>
                     <Footer />
                 </AuthContext.Provider>
