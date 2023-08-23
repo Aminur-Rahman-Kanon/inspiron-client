@@ -14,6 +14,8 @@ import ProductDetails from './Components/Pages/Products/ProductDetails/productDe
 import Shop from './Components/Pages/Shop/shop';
 import Checkout from './Components/Pages/Checkout/checkout';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -47,10 +49,9 @@ function App() {
         setSiderawer(false);
     }
 
-    console.log(productCount);
-
     return (
         <div className="App">
+            <ToastContainer autoClose={1500} limit={8} style={{fontSize: '12px'}}/>
             <HelmetProvider>
                 <AuthContext.Provider value={{ data: data ? data: {}, toggleBackdrop: setBackdrop, productCount: productCount, toggleProductCount: setProductCount }}>
                     <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>

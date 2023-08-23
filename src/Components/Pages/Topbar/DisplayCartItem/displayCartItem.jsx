@@ -35,7 +35,8 @@ function DisplayCartItem({ cart }) {
             </div>
             <div className={styles.actionContainer}>
                 <button disabled={!Object.keys(cart).length}
-                        className={styles.actionBtn}>
+                        className={styles.actionBtn}
+                        onClick={() => window.location.assign('/checkout')}>
                         Checkout Now
                 </button>
                 <button disabled={!Object.keys(cart).length}

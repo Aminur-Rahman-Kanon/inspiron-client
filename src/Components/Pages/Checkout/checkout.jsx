@@ -4,6 +4,7 @@ import AuthContext from '../../Others/AuthContext/authContext';
 import card from '../../../Assets/master-card.png';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CheckoutItems from './CheckoutItems/checkoutItems';
+import UseQueryProducts from '../../Others/useQueryProducts/useQueryProducts';
 
 const cardStyle = {
     hidePostalCode: true,
@@ -14,7 +15,6 @@ const cardStyle = {
         fontFamily: 'Arial, sans-serif',
         fontSize: '12px',
         fontSmoothing: "antialiased",
-        fontSize: "16px",
         "::placeholder": {
             color: "lightgray"
         }
@@ -31,20 +31,10 @@ function Checkout() {
 
     const context = useContext(AuthContext);
 
-    const [item, setItem] = useState({});
+    const item = UseQueryProducts();
 
     const stripe = useStripe();;
     const elements = useElements();
-
-    useEffect(() => {
-        fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ deviceId: context.data.deviceId })
-        }).then(res => res.json()).then(data => setItem(data.data)).catch(err => console.log(err));
-    }, [])    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

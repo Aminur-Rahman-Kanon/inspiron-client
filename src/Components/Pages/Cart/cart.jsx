@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import payment from '../../../Assets/payment-method.png';
 import AuthContext from '../../Others/AuthContext/authContext';
 import { addItemToCart, removeItemFromCart, removeItems } from '../../Others/UtilityFunction/utilityFunction';
+import UseQueryProducts from '../../Others/useQueryProducts/useQueryProducts';
 
 function Cart() {
     const context = useContext(AuthContext);
 
-    const [cart, setCart] = useState({});
+    const cart = UseQueryProducts();
 
     const navigate = useNavigate();
 
@@ -17,17 +18,6 @@ function Cart() {
     const discount = 10;
 
     let subtotal = 0;
-
-    useEffect(() => {
-        fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ deviceId: context.data.deviceId })
-        }).then(res => res.json()).then(data => setCart(data.data)).catch(err => console.log(err));
-    }, [context]);
-
     
     const cartDisplay = Object.keys(cart).length ? Object.values(cart).map(item => {
         subtotal += item[0].price * item.length;

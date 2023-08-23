@@ -62,7 +62,7 @@ function Shop() {
                         <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                     </div>
                     <div className={styles.optionPanel}>
-                        <ProductOptionPanel link={productLink}/>
+                        <ProductOptionPanel link={productLink} product={item}/>
                     </div>
                 </Link>
             })

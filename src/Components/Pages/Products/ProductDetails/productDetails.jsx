@@ -118,8 +118,6 @@ function ProductDetails() {
     </section>
 
     return (
-        <>
-        <ToastContainer />
         <div className={styles.productDetailsContainer}>
             {productDisplay}
             <div className={styles.relatedItemContainer}>
@@ -129,7 +127,6 @@ function ProductDetails() {
                 </div>
             </div>
         </div>
-        </>
     )
 }
 

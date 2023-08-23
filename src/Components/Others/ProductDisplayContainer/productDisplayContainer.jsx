@@ -3,8 +3,12 @@ import styles from './productDisplayContainer.module.css';
 import RatingContainer from '../RatingContainer/ratingContainer';
 import { Link } from 'react-router-dom';
 import ProductOptionPanel from '../ProductOptionPanel/productOptionPanel';
+import UseQueryProducts from '../useQueryProducts/useQueryProducts';
+import AuthContext from '../AuthContext/authContext';
 
 function ProductDisplayContainer({ product, category }) {
+
+    const addedItem = UseQueryProducts();
 
     let displayProducts;
 
@@ -21,7 +25,7 @@ function ProductDisplayContainer({ product, category }) {
                     <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                 </div>
                 <div className={styles.optionPanel}>
-                    <ProductOptionPanel link={productLink} product={item}/>
+                    <ProductOptionPanel link={productLink} product={item} productCount={addedItem[item._id] ? addedItem[item._id].length : 0}/>
                 </div>
             </Link>
         }) :
@@ -33,11 +37,9 @@ function ProductDisplayContainer({ product, category }) {
 
 
     return (
-        <>
         <div className={styles.productDisplayContainer}>
             {displayProducts}
         </div>
-        </>
     )
 }
 

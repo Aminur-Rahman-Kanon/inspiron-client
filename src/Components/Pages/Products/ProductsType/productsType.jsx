@@ -3,7 +3,6 @@ import styles from './productsType.module.css';
 import { useContext } from 'react';
 import AuthContext from '../../../Others/AuthContext/authContext';
 import ProductDisplayContainer from '../../../Others/ProductDisplayContainer/productDisplayContainer';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ProductsType () {
@@ -12,10 +11,7 @@ function ProductsType () {
 
     const [category, setCategory] = useState('allProducts');
 
-
     return (
-        <>
-        <ToastContainer autoClose={1500} limit={5} />
         <div className={styles.productsTypeContainer}>
             <section className={styles.productsNavContainers}>
                 <button className={category === 'allProducts' ? `${styles.productsNavBtn} ${styles.active}` : styles.productsNavBtn}
@@ -39,7 +35,6 @@ function ProductsType () {
                 <ProductDisplayContainer product={context.data.products} category={category} />
             </section>
         </div>
-        </>
     )
 }
 

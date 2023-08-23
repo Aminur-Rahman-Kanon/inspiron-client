@@ -8,9 +8,9 @@ function Sidedrawer ({ sidedrawer }) {
     return (
         <div className={sidedrawer ? `${styles.sidedrawerContainer} ${styles.open}` : styles.sidedrawerContainer}>
             <BottomPanel />
-            <div className={styles.logoContainer}>
+            <a href='/' className={styles.logoContainer}>
                 <img src={logo} alt="inspiron" className={styles.logo} />
-            </div>
+            </a>
             <Navbar />
         </div>
     )

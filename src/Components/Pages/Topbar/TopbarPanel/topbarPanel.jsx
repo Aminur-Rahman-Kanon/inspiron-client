@@ -1,28 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import styles from './topbarPanel.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import DisplayCartItem from '../DisplayCartItem/displayCartItem';
-import AuthContext from '../../../Others/AuthContext/authContext';
+import UseQueryProducts from '../../../Others/useQueryProducts/useQueryProducts';
 
 function TopbarPanel () {
-    
-    const context = useContext(AuthContext);
 
-    const [item, setitem] = useState({});
-
-    useEffect(() => {
-        fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'Application/json'
-            },
-            body: JSON.stringify({ deviceId: context.data.deviceId })
-        }).then(res =>res.json()).then(data => setitem(data.data)).catch(err => console.log(err));
-    }, [context])
-
-    // const cartObj = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : {}
+    const item = UseQueryProducts();
 
     return (
         <ul className={styles.topbarPanelContainer}>

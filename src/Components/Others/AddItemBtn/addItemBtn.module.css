@@ -1,0 +1,21 @@
+.addBtn {
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+.addBtnSpinner {
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    margin: 1px;
+    color: #4d53f6;
+}

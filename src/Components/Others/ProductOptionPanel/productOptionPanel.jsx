@@ -2,29 +2,26 @@ import React, { useContext, useState } from 'react';
 import styles from './productOptionPanel.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHeart, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { addItemToCart } from '../UtilityFunction/utilityFunction';
 import AuthContext from '../AuthContext/authContext';
+import AddItemBtn from '../AddItemBtn/addItemBtn';
 
-function ProductOptionPanel({link, product}) {
+function ProductOptionPanel({link, product, productCount}) {
 
     const context = useContext(AuthContext);
-    const [productCount, setProductCount] = useState(1);
 
     return (
         <div className={styles.optionPanelContainer}>
-            <div className={styles.optionPanelItem} onClick={(e) => {
-                e.preventDefault();
-                setProductCount((productCount) => productCount+1);
-                addItemToCart(context, product, productCount);
-            }}>
-                <div className={styles.alertBoxContainer}>
-                    <div className={styles.alertBox}>
-                        <p className={styles.alert}>Add to cart</p>
+            <div className={styles.optionPanelItem}>
+                <AddItemBtn context={context} amount={productCount + 1} product={product}>
+                    <div className={styles.alertBoxContainer}>
+                        <div className={styles.alertBox}>
+                            <p className={styles.alert}>Add to cart</p>
+                        </div>
                     </div>
-                </div>
-                <FontAwesomeIcon icon={faCartShopping} className={styles.optionPanelIcon} />
+                    <FontAwesomeIcon icon={faCartShopping} className={styles.optionPanelIcon} />
+                </AddItemBtn>
             </div>
+            {/* </div> */}
             <div className={styles.optionPanelItem}>
                 <div className={styles.alertBoxContainer}>
                     <div className={styles.alertBox}>
@@ -48,4 +45,4 @@ function ProductOptionPanel({link, product}) {
     )
 }
 
-export default ProductOptionPanel
+export default React.memo(ProductOptionPanel);

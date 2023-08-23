@@ -7,6 +7,35 @@ export const disableScroll = () => {
     window.onscroll = () => window.scrollTo(scrollLeft, scrollTop)
 }
 
+export const fetchAddedProducts = async (deviceId) => {
+    const addedProducts = await fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify({ deviceId })
+    }).then(res =>res.json()).then(data => data.data).catch(err => console.log(err));
+    return addedProducts;
+}
+
+const addItem = async (context, amount, deviceId, products, item) => {
+    Array.from(Array(amount)).forEach(count => products[item._id].push(item));
+    // sessionStorage.setItem('cart', JSON.stringify(products));
+    await fetch('https://inspiron-server-9gmf.onrender.com/add-to-cart', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ deviceId, product: products })
+    }).then(res => res.json()).then(data => {
+        context.toggleProductCount(context.productCount + amount);
+        return toast.success(`${amount} ${item.title} was added to your cart`, {
+            position: toast.POSITION.TOP_RIGHT,
+            hideProgressBar: true
+        })
+    }).catch(err => console.log(err));
+}
+
 export const addItemToCart = async (context, product, amount) => {
     const deviceId = context.data.deviceId;
     const cart = await fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
@@ -20,28 +49,11 @@ export const addItemToCart = async (context, product, amount) => {
             return new Error("Server error");
         }
     });
-    // const cart = JSON.parse(sessionStorage.getItem('cart'));
     // if no item set to cart at all
     if (!Object.keys(cart.data).length){
-        const item = {};
-        item[product._id] = [];
-        Array.from(Array(amount)).forEach(count => item[product._id].push(product));
-        // sessionStorage.setItem('cart', JSON.stringify(item));
-        //inject data into database and organise behaviour
-        await fetch('https://inspiron-server-9gmf.onrender.com/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ deviceId, product: item })
-        }).then(res => res.json()).then(data => {
-            console.log('foo');
-            context.toggleProductCount(context.productCount + amount);
-            return toast.success(`${amount} ${product.title} was added to your cart`, {
-                position: toast.POSITION.TOP_RIGHT
-            })
-        }).catch(err => console.log(err));
-
+        const products = {};
+        products[product._id] = [];
+        await addItem(context, amount, deviceId, products, product);
     }
     // if item exist in cart
     else {
@@ -49,43 +61,13 @@ export const addItemToCart = async (context, product, amount) => {
         if (Object.keys(cart.data).includes(product._id)){
             const products = {...cart.data};
             products[product._id] = [];
-            Array.from(Array(amount)).forEach(count => products[product._id].push(product));
-            // sessionStorage.setItem('cart', JSON.stringify(products));
-            await fetch('https://inspiron-server-9gmf.onrender.com/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ deviceId, product: products })
-            }).then(res => res.json()).then(data => {
-                console.log('foo');
-                context.toggleProductCount(context.productCount + amount);
-                return toast.success(`${amount} ${product.title} was added to your cart`, {
-                    position: toast.POSITION.TOP_RIGHT
-                })
-            }).catch(err => console.log(err));
-
+            await addItem(context, amount, deviceId, products, product);
         }
         //if the product we want to store is not in the cart
         else {
             const products = {...cart.data};
             products[product._id] = [];
-            Array.from(Array(amount)).forEach(count => products[product._id].push(product))
-            // sessionStorage.setItem('cart', JSON.stringify(products));
-            await fetch('https://inspiron-server-9gmf.onrender.com/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ deviceId, product: products })
-            }).then(res => res.json()).then(data => {
-                console.log('foo');
-                context.toggleProductCount(context.productCount + amount);
-                return toast.success(`${amount} ${product.title} was added to your cart`, {
-                    position: toast.POSITION.TOP_RIGHT
-                })
-            }).catch(err => console.log(err));
-
+            await addItem(context, amount, deviceId, products, product);
         }
     }
 }

@@ -8,7 +8,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('pk_test_51Nhrk0HKCnIrmXjL13xcsscu107O284G6AlTxc1DZMQ9NcKBVYEMQ3WZGD03MUVa4mo8R9Z9bqs8qRNhSS2ID47500BBkxFUuH');
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 const queryClient = new QueryClient();
 
