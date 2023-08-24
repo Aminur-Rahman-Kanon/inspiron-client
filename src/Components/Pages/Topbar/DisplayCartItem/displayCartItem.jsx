@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styles from './displayCartItem.module.css';
-import { Link } from 'react-router-dom';
-import { removeItemFromCart } from '../../../Others/UtilityFunction/utilityFunction';
+import RemoveItemBtn from '../../../Others/RemoveItemBtn/removeItemBtn';
 import AuthContext from '../../../Others/AuthContext/authContext';
 
 function DisplayCartItem({ cart }) {
@@ -18,7 +17,12 @@ function DisplayCartItem({ cart }) {
                 <h4 className={styles.heading}>{item[0].title}</h4>
                 <span className={styles.subHeading}>{`${item.length} x ${item[0].price}`}</span>
                 <span className={styles.subHeading}>Total: &pound;{Number(item[0].price)*Number(item.length)}</span>
-                <button className={styles.removebtn} onClick={() => removeItemFromCart(context, item[0])}>Remove</button>
+                {/* <button className={styles.removebtn} onClick={() => removeItemFromCart(context, item[0])}>Remove</button> */}
+                <div className={styles.removeBtn}>
+                    <RemoveItemBtn context={context} product={item[0]}>
+                        Remove
+                    </RemoveItemBtn>
+                </div>
             </div>
         </div>)
     }

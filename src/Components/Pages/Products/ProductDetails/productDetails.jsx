@@ -9,8 +9,7 @@ import Carousel from '../../../Others/Carousel/carousel';
 import ImageMagnifier from '../../../Others/ImageMagnifier/imageMagnifier';
 import AddItem from '../../../Others/AddItem/addItem';
 import FacebookShare from '../../../Others/FacebookShare/facebookShare';
-import { addItemToCart } from '../../../Others/UtilityFunction/utilityFunction';
-import { ToastContainer } from 'react-toastify';
+import AddItemBtn from '../../../Others/AddItemBtn/addItemBtn';
 
 function ProductDetails() {
     const context = useContext(AuthContext);
@@ -94,10 +93,15 @@ function ProductDetails() {
                          increment={() => setItemCount((itemCount) => itemCount+1)}
                          decrement={() => setItemCount((itemCount) => itemCount-1)}/>
                 <div className={styles.actionContainer}>
-                    <button disabled={!itemCount}
+                    <div className={itemCount ? styles.addToCartBtn : `${styles.addToCartBtn} ${styles.disable}`}>
+                        <AddItemBtn context={context} amount={itemCount} product={item} disable={!itemCount}>
+                            <div className={styles.btnContent}>Add to cart</div>
+                        </AddItemBtn>
+                    </div>
+                    {/* <button disabled={!itemCount}
                             className={styles.actionButton}
-                            onClick={() => addItemToCart(context, item, itemCount)}>Add to cart</button>
-                    <button disabled={!itemCount} className={styles.actionButton}>Buy now</button>
+                            onClick={() => addItemToCart(context, item, itemCount)}>Add to cart</button> */}
+                    <button disabled={!itemCount} className={styles.buyNowBtn}>Buy now</button>
                 </div>
             </div>
             <div className={styles.detailsContainer}>

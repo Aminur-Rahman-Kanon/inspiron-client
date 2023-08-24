@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-function AddItemBtn ({ context, amount, product, children }) {
+function AddItemBtn ({ context, amount, product, children, disable }) {
 
-    const [pending, setPending] = useState(false);
+    const [isPending, setIsPending] = useState(false);
 
     const addItem = async (context, amount, deviceId, products, item) => {
+        console.log(amount);
         Array.from(Array(amount)).forEach(count => products[item._id].push(item));
         // sessionStorage.setItem('cart', JSON.stringify(products));
         await fetch('https://inspiron-server-9gmf.onrender.com/add-to-cart', {
@@ -19,7 +20,7 @@ function AddItemBtn ({ context, amount, product, children }) {
         body: JSON.stringify({ deviceId, product: products })
         }).then(res => res.json()).then(data => {
             context.toggleProductCount(context.productCount + amount);
-            setPending(false);
+            setIsPending(false);
             // if (updateAmount !== undefined){
             //     updateAmount(amount + 1);
             // }
@@ -32,7 +33,7 @@ function AddItemBtn ({ context, amount, product, children }) {
 
     const addItemToCart = async (e) => {
         e.preventDefault();
-        setPending(true);
+        setIsPending(true);
         const deviceId = context.data.deviceId;
         const cart = await fetch('https://inspiron-server-9gmf.onrender.com/fetch-cart-item', {
             method: "POST",
@@ -56,9 +57,7 @@ function AddItemBtn ({ context, amount, product, children }) {
             //if the product we want to store is in the cart already
             if (Object.keys(cart.data).includes(product._id)){
                 const products = {...cart.data};
-                const productAmount = products[product._id].length;
-                console.log(productAmount);
-                products[product._id] = [];
+                // products[product._id] = [];
                 await addItem(context, amount, deviceId, products, product);
             }
             //if the product we want to store is not in the cart
@@ -70,13 +69,13 @@ function AddItemBtn ({ context, amount, product, children }) {
         }
     }
     return (
-        <div className={styles.addBtn} onClick={addItemToCart}>
-            {pending ? 
+        <button disabled={disable || isPending} className={styles.addBtn} onClick={addItemToCart}>
+            {isPending ? 
             <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.addBtnSpinner} />
             :
             children
             }
-        </div>
+        </button>
     )
 }
 

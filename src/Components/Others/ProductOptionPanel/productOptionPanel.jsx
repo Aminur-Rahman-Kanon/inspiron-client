@@ -5,21 +5,21 @@ import { faMagnifyingGlass, faHeart, faCartShopping } from '@fortawesome/free-so
 import AuthContext from '../AuthContext/authContext';
 import AddItemBtn from '../AddItemBtn/addItemBtn';
 
-function ProductOptionPanel({link, product, productCount}) {
+function ProductOptionPanel({ link, product }) {
 
     const context = useContext(AuthContext);
 
     return (
         <div className={styles.optionPanelContainer}>
             <div className={styles.optionPanelItem}>
-                <AddItemBtn context={context} amount={productCount + 1} product={product}>
-                    <div className={styles.alertBoxContainer}>
-                        <div className={styles.alertBox}>
-                            <p className={styles.alert}>Add to cart</p>
-                        </div>
-                    </div>
+                <AddItemBtn context={context} amount={1} product={product}>
                     <FontAwesomeIcon icon={faCartShopping} className={styles.optionPanelIcon} />
                 </AddItemBtn>
+                <div className={styles.alertBoxContainer}>
+                    <div className={styles.alertBox}>
+                        <p className={styles.alert}>Add to cart</p>
+                    </div>
+                </div>
             </div>
             {/* </div> */}
             <div className={styles.optionPanelItem}>

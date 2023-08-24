@@ -1,8 +1,8 @@
-.addBtn {
+.removeItemBtn {
     position: relative;
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: inherit;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -16,12 +16,7 @@
     cursor: pointer;
 }
 
-.addBtn:disabled {
-    opacity: 0.8;
-    cursor: default;
-}
-
-.addBtnSpinner {
+.removeItemIcon {
     width: 15px;
     height: 15px;
     padding: 10px;

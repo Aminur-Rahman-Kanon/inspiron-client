@@ -25,7 +25,7 @@ function ProductDisplayContainer({ product, category }) {
                     <h4 className={styles.productsH4}>&pound;{item.price}</h4>
                 </div>
                 <div className={styles.optionPanel}>
-                    <ProductOptionPanel link={productLink} product={item} productCount={addedItem[item._id] ? addedItem[item._id].length : 0}/>
+                    <ProductOptionPanel link={productLink} product={item} />
                 </div>
             </Link>
         }) :

@@ -3,8 +3,11 @@ import styles from './cart.module.css';
 import { useNavigate } from 'react-router-dom';
 import payment from '../../../Assets/payment-method.png';
 import AuthContext from '../../Others/AuthContext/authContext';
-import { addItemToCart, removeItemFromCart, removeItems } from '../../Others/UtilityFunction/utilityFunction';
+// import { addItemToCart, removeItemFromCart, removeItems } from '../../Others/UtilityFunction/utilityFunction';
 import UseQueryProducts from '../../Others/useQueryProducts/useQueryProducts';
+import AddItemBtn from '../../Others/AddItemBtn/addItemBtn';
+import RemoveItemBtn from '../../Others/RemoveItemBtn/removeItemBtn';
+import RemoveAlItemBtn from '../../Others/RemoveAllItemBtn/removeAlItemBtn';
 
 function Cart() {
     const context = useContext(AuthContext);
@@ -34,15 +37,28 @@ function Cart() {
             </div>
             <div className={styles.cartItemElements}>
                 <div className={styles.cartItemElement}>
-                    <button className={styles.quantityBtn} onClick={() => addItemToCart(context, item[0], item.length + 1)}>+</button>
+                    <div className={styles.quantityBtn}>
+                        <AddItemBtn context={context} product={item[0]} amount={1}>
+                            +
+                        </AddItemBtn>
+                    </div>
                     <div className={styles.quantityCount}>{item.length}</div>
-                    <button className={styles.quantityBtn} onClick={() => removeItemFromCart(context, item[0])}>-</button>
+                    <div className={styles.quantityBtn}>
+                        <RemoveItemBtn context={context} product={item[0]}>
+                            -
+                        </RemoveItemBtn>
+                    </div>
                 </div>
                 <div className={styles.cartItemElement}>
                     <span className={styles.subtotal}>&pound;{Number(item.length)* Number(item[0].price)}</span>
                 </div>
                 <div className={styles.cartItemElement}>
-                    <button className={styles.removeBtn} onClick={() => removeItems(context, item[0])}>Remove</button>
+                    {/* <button className={styles.removeBtn} onClick={() => removeItems(context, item[0])}>Remove</button> */}
+                    <div className={styles.removeBtn}>
+                        <RemoveAlItemBtn context={context} product={item[0]}>
+                            Remove
+                        </RemoveAlItemBtn>
+                    </div>
                 </div>
             </div>
         </div>

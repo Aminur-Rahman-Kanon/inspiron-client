@@ -139,6 +139,12 @@
     background-color: white;
     color: rgb(55, 55, 55);
     cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    overflow: hidden;
 }
 
 .quantityBtn:hover {
@@ -159,6 +165,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 10px;
 }
 
 .subtotal {
@@ -174,6 +181,13 @@
     color: white;
     border-radius: 2px;
     cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    overflow: hidden;
 }
 
 .removeBtn:hover {
