@@ -16,7 +16,10 @@ import Checkout from './Components/Pages/Checkout/checkout';
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
+// const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 function App() {
 
@@ -24,11 +27,17 @@ function App() {
     const [backdrop, setBackdrop] = useState(false);
     const [productCount, setProductCount] = useState(0);
 
-    const {isLoading, error, data} = useQuery({
-        queryKey: ['data'],
-        queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
-        staleTime: 99000000
-    });
+    const data = [];
+
+    // const options = {
+    //     clientSecret: '{{CLIENT_SECRET}}',
+    //   };
+
+    // const {isLoading, error, data} = useQuery({
+    //     queryKey: ['data'],
+    //     queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
+    //     staleTime: 99000000
+    // });
 
     useEffect(() => {
         if (backdrop) {
@@ -57,13 +66,15 @@ function App() {
                     <Backdrop backdrop={backdrop} togglebackdrop={closeSidedrawer}/>
                     <Topbar changeSidedrawer={openSidedrawer} />
                     <Sidedrawer sidedrawer={sidedrawer}/>
-                    <Routes>
-                        <Route path='/' element={<HomepageMain />}/>
-                        <Route path='/shop/:category' element={<Shop />} />
-                        <Route path='/shop/:category/:productId' element={<ProductDetails />} />
-                        <Route path='/cart' element={<Cart />} />
-                        <Route path='/checkout' element={<Checkout />} />
-                    </Routes>
+                        <Routes>
+                            <Route path='/' element={<HomepageMain />}/>
+                            <Route path='/shop/:category' element={<Shop />} />
+                            <Route path='/shop/:category/:productId' element={<ProductDetails />} />
+                            <Route path='/cart' element={<Cart />} />
+                            <Route path='/checkout' element={<Checkout />} />
+                        </Routes>
+                    {/* <Elements stripe={stripePromise} options={{ clientSecret: 'sk_test_51Nhrk0HKCnIrmXjL57yAcwcbjjOdlFRumZg9PujyjGplut2BiGd6Ik8ciAGNRqbpObPInTTM4WQfLG2wGrpqIfhU00RXlLF0OR' }}>
+                    </Elements> */}
                     <Footer />
                 </AuthContext.Provider>
             </HelmetProvider>

@@ -107,4 +107,8 @@
     .additionalBannerImgContainer {
         height: 300px;
     }
+
+    .additionalBannerContainer {
+        padding: 0;
+    }
 }

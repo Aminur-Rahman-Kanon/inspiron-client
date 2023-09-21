@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 const queryClient = new QueryClient();
 
@@ -17,9 +14,7 @@ root.render(
   <BrowserRouter>
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <Elements stripe={stripePromise}>
           <App />
-        </Elements>
       </QueryClientProvider>
     </React.StrictMode>
   </BrowserRouter>

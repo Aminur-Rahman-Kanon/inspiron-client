@@ -78,4 +78,8 @@
     .additionalBanner2ImgContainer {
         height: 300px;
     }
+
+    .additionalBanner2Container {
+        padding: 0;
+    }
 }
