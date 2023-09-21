@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './banner.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import macbook from '../../../../Assets/images/products/macbook.jpg';
 import { bannerEffect } from '../../../Others/UtilityFunction/utilityFunction';
 
