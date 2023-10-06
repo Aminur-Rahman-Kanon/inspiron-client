@@ -11,14 +11,13 @@ function Banner () {
 
     useEffect(() => {
         bannerEffect(carouselItem);
-    }, [])
+    }, []);
 
     return (
         <div className='banner-container'>
             <Swiper>
                 <SwiperSlide>
                     <div className='carousel-item-container'>
-                        {/* <img src={bkg1} alt="macbook" className='background-img'/> */}
                         <div className='item-img-container'>
                             <img src={macbook} alt="macbook" className='product-img'/>
                             <div className='img-details-container'>

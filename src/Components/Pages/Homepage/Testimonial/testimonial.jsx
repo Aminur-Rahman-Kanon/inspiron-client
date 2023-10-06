@@ -8,15 +8,15 @@ function Testimonial() {
 
     const [testimonial, setTestimonial] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('https://inspiron-server-9gmf.onrender.com/get-testimonial')
-    //     .then(res => res.json())
-    //     .then(result => {
-    //         if (result.status === 'success'){
-    //             setTestimonial(result.data)
-    //         }
-    //     }).catch(err => console.log(err));
-    // }, []);
+    useEffect(() => {
+        fetch('https://inspiron-server-9gmf.onrender.com/get-testimonial')
+        .then(res => res.json())
+        .then(result => {
+            if (result.status === 'success'){
+                setTestimonial(result.data)
+            }
+        }).catch(err => console.log(err));
+    }, []);
 
     const testimonialDisplay = testimonial.length ? <Swiper className="testimonial-silder-container">
         {

@@ -11,7 +11,8 @@
     /* height: 550px; */
     padding: 50px 0;
     box-sizing: border-box;
-    background: linear-gradient(180deg, #352F44, #5C5470);
+    background: linear-gradient(30deg, #453f3f, #808080);
+    /* background-image: url('../../../../Assets//images//products/test.jpg'); */
     background-position: center;
     background-size: cover;
     display: flex;
@@ -19,15 +20,13 @@
     align-items: center;
 }
 
-.background-img {
-    width: 100%;
-}
-
 .item-img-container {
     position: relative;
     width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 330px;
-    /* height: 400px; */
     transition: all 0.5s ease-out;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #716788;

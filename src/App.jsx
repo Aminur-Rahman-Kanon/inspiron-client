@@ -26,18 +26,16 @@ function App() {
     const [sidedrawer, setSiderawer] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
     const [productCount, setProductCount] = useState(0);
-
-    const data = [];
-
+    
     // const options = {
     //     clientSecret: '{{CLIENT_SECRET}}',
     //   };
 
-    // const {isLoading, error, data} = useQuery({
-    //     queryKey: ['data'],
-    //     queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
-    //     staleTime: 99000000
-    // });
+    const {isLoading, error, data} = useQuery({
+        queryKey: ['data'],
+        queryFn: () => fetch('https://inspiron-server-9gmf.onrender.com/products/initial-product').then(res => res.json()).then(result => result.data),
+        staleTime: 99000000
+    });
 
     useEffect(() => {
         if (backdrop) {
